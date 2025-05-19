@@ -1,0 +1,102 @@
+h1{
+    text-align: center;
+    color: #333;
+}
+
+h2{
+    text-align: center;
+    color: #333;
+    font-size: 25px;
+}
+
+p{
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+div{
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+body{
+    background-color:goldenrod ;
+}
+
+.comida{
+    text-shadow:  0.5px 0px 0 black;
+}
+.categoria{
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+.plato{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+}
+.plato:last-child{
+    border-bottom: none;
+}
+
+.nombre-plato{
+    font-weight: bold;
+}
+
+.plato-imagen{
+    width: 50%;
+    height: auto;
+    display: none;
+    margin-top: 10px;
+    margin-left: 0;
+    text-align: left;
+}
+
+.precio{
+    color: #e44d26;
+}
+
+.combo-info {
+    display: none; /* Ocultar la información adicional inicialmente */
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #777;
+    text-align: left; /* Alinea el texto de la información a la izquierda */
+    margin-left: auto;
+    width: 70%; /* Ajusta el ancho según necesites */
+}
+
+.ver-mas-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.9em;
+    margin-left: 10px; /* Espacio entre el precio y el botón */
+}
+
+.ver-mas-btn:hover {
+    text-decoration: underline;
+}
+
+.plato.expanded {
+    flex-direction: column; /* Cambia la dirección del flex para mostrar el botón y la info abajo */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+.plato.expanded .combo-info {
+    display: block; /* Mostrar la información al expandir */
+    margin-left: 0; /* Elimina el margen izquierdo al mostrarse */
+}
+
+.plato.expanded .precio {
+    margin-bottom: 5px; /* Espacio entre el precio y el botón al expandir */
+}
