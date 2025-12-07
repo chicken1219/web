@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Navidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c3b2e 0%, #1a5c48 50%, #0c3b2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #ffdd40;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b8e0d2;
+            margin-bottom: 30px;
+        }
+        
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #f0f8ff;
+        }
+        
+        .signature {
+            font-style: italic;
+            color: #ffdd40;
+            font-size: 1.3rem;
+            margin-top: 20px;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-box {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px 15px;
+            min-width: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffdd40;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #b8e0d2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .locked-content {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+        
+        .locked-icon {
+            font-size: 3rem;
+            color: #ffdd40;
+            margin-bottom: 15px;
+        }
+        
+        .locked-text {
+            font-size: 1.2rem;
+            color: #b8e0d2;
+        }
+        
+        .unlocked-content {
+            background-color: rgba(40, 167, 69, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid rgba(40, 167, 69, 0.5);
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+        
+        .unlocked-icon {
+            font-size: 3rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        
+        .unlocked-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #f0f8ff;
+        }
+        
+        .notification-banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1000;
+            animation: slideIn 0.5s ease;
+            max-width: 350px;
+        }
+        
+        .notification-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1rem;
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #b8e0d2;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-box {
+                min-width: 80px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-container {
+                gap: 10px;
+            }
+            
+            .countdown-box {
+                min-width: 70px;
+                padding: 12px 8px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-holly-berry"></i> Feliz Navidad <i class="fas fa-holly-berry"></i></h1>
+            <p class="subtitle">Un mensaje especial para ti</p>
+        </div>
+        
+        <div class="message-container">
+            <p class="message" id="christmas-message">
+                En esta Navidad, quiero desearte lo mejor. Que estas fiestas estén llenas de alegría, paz y amor. Aunque los caminos a veces se separan, siempre habrá un lugar en mi corazón para los buenos recuerdos que compartimos.
+            </p>
+            <p class="signature">Con cariño</p>
+        </div>
+        
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <div class="countdown-value" id="days">0</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="hours">0</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="minutes">0</div>
+                <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="seconds">0</div>
+                <div class="countdown-label">Segundos</div>
+            </div>
+        </div>
+        
+        <div class="locked-content" id="locked-content">
+            <div class="locked-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <p class="locked-text">Contenido especial disponible a partir del 31 de diciembre</p>
+        </div>
+        
+        <div class="unlocked-content" id="unlocked-content">
+            <div class="unlocked-icon">
+                <i class="fas fa-unlock-alt"></i>
+            </div>
+            <p class="unlocked-text">
+                ¡Feliz Año Nuevo! Que este nuevo año te traiga felicidad, éxito y nuevas oportunidades. Espero que todos tus sueños y metas se hagan realidad. Brindo por un año lleno de bendiciones para ti.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>Este mensaje estará disponible hasta el 24 de diciembre | El contenido especial se desbloqueará el 31 de diciembre</p>
+        </div>
+    </div>
+    
+    <div class="notification-banner" id="notification-banner">
+        <button class="notification-close" id="notification-close">×</button>
+        <div class="notification-title">
+            <i class="fas fa-bell"></i> ¡Feliz Año Nuevo!
+        </div>
+        <div class="notification-message">Tienes un mensaje especial esperándote.</div>
+    </div>
+
+    <script>
+        // Fecha objetivo para el desbloqueo (31 de diciembre)
+        const unlockDate = new Date('December 31, 2024 00:00:00').getTime();
+        // Fecha para notificación (1 de enero)
+        const notificationDate = new Date('January 1, 2025 00:00:00').getTime();
+        // Fecha límite para mostrar el mensaje navideño (24 de diciembre)
+        const christmasDeadline = new Date('December 24, 2024 23:59:59').getTime();
+        
+        // Elementos del DOM
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        const lockedContent = document.getElementById('locked-content');
+        const unlockedContent = document.getElementById('unlocked-content');
+        const christmasMessage = document.getElementById('christmas-message');
+        const notificationBanner = document.getElementById('notification-banner');
+        const notificationClose = document.getElementById('notification-close');
+        
+        // Variable para verificar si ya se mostró la notificación
+        let notificationShown = false;
+        
+        // Función para actualizar el contador
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = unlockDate - now;
+            
+            // Si ya pasó la fecha del 24 de diciembre, ocultar mensaje navideño
+            if (now > christmasDeadline) {
+                christmasMessage.innerHTML = "El período para el mensaje navideño ha concluido. <br>Pronto habrá un nuevo mensaje disponible.";
+            }
+            
+            // Si ya pasó la fecha de desbloqueo (31 de diciembre)
+           /* if (timeLeft < 0) {
+                // Mostrar contenido desbloqueado
+                lockedContent.style.display = 'none';
+                unlockedContent.style.display = 'block';
+                
+                // Detener el contador
+                daysElement.textContent = '0';
+                hoursElement.textContent = '0';
+                minutesElement.textContent = '0';
+                secondsElement.textContent = '0';
+                
+                // Verificar si es 1 de enero y mostrar notificación
+                checkNewYearNotification(now);
+                return;
+            }
+            
+            // Calcular días, horas, minutos y segundos restantes
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Actualizar elementos del DOM
+            daysElement.textContent = days;
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
+        }*/
+        
+        // Función para verificar y mostrar notificación de año nuevo
+       /* function checkNewYearNotification(currentTime) {
+            // Verificar si es 1 de enero y la notificación no se ha mostrado
+            if (currentTime >= notificationDate && !notificationShown) {
+                // Mostrar notificación después de 2 segundos
+                setTimeout(() => {
+                    notificationBanner.style.display = 'block';
+                    notificationShown = true;
+                    
+                    // Guardar en localStorage que ya se mostró la notificación
+                    localStorage.setItem('newYearNotificationShown', 'true');
+                }, 2000);
+            }
+        }*/
+        
+        // Función para crear efectos de nieve
+        function createSnowflakes() {
+            const snowflakesContainer = document.body;
+            const snowflakeCount = 30;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+                snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+                snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+                
+                snowflakesContainer.appendChild(snowflake);
+                
+                // Eliminar el copo de nieve después de que termine su animación
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 15000);
+            }
+        }
+        
+        // Cerrar notificación
+        notificationClose.addEventListener('click', () => {
+            notificationBanner.style.display = 'none';
+        });
+        
+        // Inicializar
+        function init() {
+            // Verificar si ya se mostró la notificación en localStorage
+            const notificationShownStored = localStorage.getItem('newYearNotificationShown');
+            if (notificationShownStored === 'true') {
+                notificationShown = true;
+            }
+            
+            // Actualizar contador inmediatamente y luego cada segundo
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Crear efectos de nieve periódicamente
+            createSnowflakes();
+            setInterval(createSnowflakes, 3000);
+            
+            // Verificar estado inicial para mostrar contenido desbloqueado si corresponde
+            const now = new Date().getTime();
+            if (now > unlockDate) {
+                lockedContent.style.display = 'none';
+                unlockedContent.style.display = 'block';
+                checkNewYearNotification(now);
+            }
+        }
+        
+        // Inicializar la página cuando se cargue
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Chicken - Menú Interactivo</title>
+    <title>Master Chicken - Feliz Navidad 🎄</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,54 +14,129 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
+            background: linear-gradient(135deg, #0a2e1d 0%, #1a3c2e 100%);
+            color: #f5f5f5;
             padding: 20px;
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Efecto de nieve */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        .snowflake {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 20px;
-            background: white;
+            padding: 25px;
+            background: linear-gradient(45deg, #b22222, #228B22);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #daa520;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "🎄 🎅 🎄";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+        }
+        
+        header::after {
+            content: "🎄 🎅 🎄";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
         }
         
         h1 {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 2.8rem;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, #FFD700, #daa520);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .subtitle {
-            color: #7f8c8d;
+            color: #f0f0f0;
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
+            padding: 10px;
+            background-color: rgba(178, 34, 34, 0.2);
+            border-radius: 10px;
+        }
+        
+        .navidad-icon {
+            margin: 0 5px;
         }
         
         .categoria {
             margin-bottom: 40px;
-            background: white;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .categoria::before {
+            content: "❄️";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            opacity: 0.5;
         }
         
         .categoria h2 {
-            color: #e74c3c;
+            color: #FFD700;
             font-size: 1.8rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #f39c12;
+            border-bottom: 2px solid #b22222;
+            text-align: center;
         }
         
         .menu {
@@ -71,18 +146,21 @@
         }
         
         .plato {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             position: relative;
             padding: 20px;
+            color: #333;
+            border: 1px solid #daa520;
         }
         
         .plato:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #FFD700;
         }
         
         .plato-header {
@@ -92,7 +170,7 @@
         .nombre-plato {
             font-size: 1.4rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: #0a2e1d;
             display: block;
             margin-bottom: 10px;
         }
@@ -101,12 +179,12 @@
             position: absolute;
             top: 0;
             right: 0;
-            background-color: #2ecc71;
+            background: linear-gradient(to right, #b22222, #8B0000);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
         
         .plato-descripcion {
@@ -127,26 +205,27 @@
             display: none;
             margin: 15px 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px solid #daa520;
         }
         
         .combo-info, .plato-info {
             display: none;
             padding: 15px;
-            background-color: #f8f9fa;
+            background-color: rgba(255, 215, 0, 0.1);
             border-radius: 10px;
             margin-top: 15px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #b22222;
         }
         
         .salsa-info {
             display: block;
             margin-top: 10px;
             font-style: italic;
-            color: #e74c3c;
+            color: #b22222;
         }
         
         .ver-mas-btn {
-            background: linear-gradient(to right, #3498db, #2980b9);
+            background: linear-gradient(to right, #228B22, #006400);
             color: white;
             border: none;
             padding: 12px 20px;
@@ -161,12 +240,13 @@
             justify-content: center;
             gap: 8px;
             margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .ver-mas-btn:hover {
-            background: linear-gradient(to right, #2980b9, #2573a7);
+            background: linear-gradient(to right, #32a852, #228B22);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         
         .ver-mas-btn:active {
@@ -206,11 +286,28 @@
         }
         
         footer {
-            background: #2c3e50;
+            background: linear-gradient(to right, #0a2e1d, #1a3c2e);
             color: white;
             padding: 40px 20px;
             margin-top: 60px;
             border-radius: 15px;
+            border-top: 3px solid #daa520;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "🎅 ¡Feliz Navidad! 🎄";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #b22222;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 2;
         }
         
         .footer-content {
@@ -231,7 +328,7 @@
         .footer-section h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: #f39c12;
+            color: #FFD700;
         }
         
         .contact-info {
@@ -242,7 +339,7 @@
         
         .contact-info i {
             margin-right: 10px;
-            color: #3498db;
+            color: #FFD700;
         }
         
         .contact-info a {
@@ -252,6 +349,7 @@
         
         .contact-info a:hover {
             text-decoration: underline;
+            color: #FFD700;
         }
         
         .social-icons {
@@ -267,7 +365,7 @@
         }
         
         .social-icons a:hover {
-            color: #3498db;
+            color: #FFD700;
             transform: translateY(-3px);
         }
         
@@ -289,10 +387,11 @@
         .device-test {
             text-align: center;
             margin: 20px 0;
-            padding: 15px;
-            background: white;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(218, 165, 32, 0.3);
         }
         
         .test-buttons {
@@ -308,10 +407,23 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
+            transition: all 0.3s;
         }
         
-        .success { background-color: #2ecc71; color: white; }
-        .warning { background-color: #f39c12; color: white; }
+        .success { 
+            background: linear-gradient(to right, #228B22, #32a852); 
+            color: white; 
+        }
+        
+        .warning { 
+            background: linear-gradient(to right, #b22222, #d9534f); 
+            color: white; 
+        }
+        
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
         
         @media (max-width: 768px) {
             .menu {
@@ -333,19 +445,6 @@
             .footer-content {
                 flex-direction: column;
             }
-            
-            .plato {
-                padding: 15px;
-            }
-            
-            .nombre-plato {
-                font-size: 1.2rem;
-            }
-            
-            .ver-mas-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
         }
         
         .notification {
@@ -353,432 +452,474 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #2c3e50;
+            background: linear-gradient(to right, #b22222, #8B0000);
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             z-index: 1000;
             display: none;
             animation: fadeIn 0.5s ease;
             text-align: center;
             max-width: 90%;
+            border: 1px solid #daa520;
         }
         
-        /* Estilos para mejorar la experiencia táctil */
-        .ver-mas-btn {
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
+        /* Decoraciones navideñas adicionales */
+        .navidad-deco {
+            position: fixed;
+            z-index: 998;
+            font-size: 1.5rem;
         }
         
-        /* Mejora para dispositivos táctiles */
-        @media (hover: none) {
-            .plato:hover {
-                transform: none;
-            }
-            
-            .ver-mas-btn:hover {
-                transform: none;
-                background: linear-gradient(to right, #3498db, #2980b9);
-            }
+        .deco-1 {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-15deg);
+            color: #b22222;
+        }
+        
+        .deco-2 {
+            top: 15%;
+            right: 5%;
+            transform: rotate(15deg);
+            color: #228B22;
+        }
+        
+        .deco-3 {
+            bottom: 20%;
+            left: 3%;
+            transform: rotate(-10deg);
+            color: #FFD700;
+        }
+        
+        .deco-4 {
+            bottom: 15%;
+            right: 3%;
+            transform: rotate(10deg);
+            color: #b22222;
+        }
+        
+        .seasonal-message {
+            text-align: center;
+            background: linear-gradient(45deg, #b22222, #228B22);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #FFD700;
+            font-weight: bold;
+        }
+        
+        .festive-border {
+            position: relative;
+            padding: 5px;
+            border-radius: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #b22222,
+                #b22222 10px,
+                #228B22 10px,
+                #228B22 20px
+            );
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>🍗 Master Chicken 🍗</h1>
-        <p class="subtitle">El mejor pollo de Honduras - Desde 2015 sirviendo calidad y sabor</p>
-    </header>
+    <!-- Efecto de nieve -->
+    <div class="snowflakes" id="snowflakes"></div>
     
-    <div class="device-test">
-        <h3>Probar funcionamiento en diferentes dispositivos</h3>
-        <p>Si estás en una computadora, prueba el botón "Ver más". Si estás en móvil, desliza hacia abajo para ver los platos.</p>
-        <div class="test-buttons">
-            <button class="test-btn success" onclick="showNotification('¡Modo computadora detectado!')">Estoy en Computadora</button>
-            <button class="test-btn warning" onclick="showNotification('¡Modo móvil detectado!')">Estoy en Móvil</button>
-        </div>
-    </div>
+    <!-- Decoraciones navideñas -->
+    <div class="navidad-deco deco-1">🎄</div>
+    <div class="navidad-deco deco-2">🎅</div>
+    <div class="navidad-deco deco-3">🦌</div>
+    <div class="navidad-deco deco-4">🌟</div>
+    
+    <div class="container">
+        <header>
+            <h1>🍗 Master Chicken 🍗</h1>
+            <p class="subtitle">🎄 ¡Feliz Navidad! 🎄 El mejor pollo de Honduras - Desde 2024 sirviendo calidad y sabor</p>
+            <div class="seasonal-message">
+                🎁 ¡Disfruta nuestras especiales promociones navideñas! 🎁
+            </div>
+        </header>
 
-    <div class="categoria">
-        <h2><i class="fas fa-utensils"></i> Entradas</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Ensalada</span>
-                    <span class="precio">25lps</span>
-                    <p class="plato-descripcion">Fresca ensalada con ingredientes seleccionados.</p>
-                    <img src="img/ensalada.jpg" alt="Ensalada" class="plato-imagen">
+        <div class="categoria">
+            <h2><i class="fas fa-utensils navidad-icon"></i> Entradas Navideñas</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Ensalada Navideña</span>
+                        <span class="precio">25lps</span>
+                        <p class="plato-descripcion">Fresca ensalada con ingredientes seleccionados y toque navideño.</p>
+                        <img src="img/ensalada.jpg" alt="Ensalada" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Encurtido</span>
-                    <span class="precio">15lps</span>
-                    <p class="plato-descripcion">Encurtido casero con un toque especial.</p>
-                    <img src="img/encurtido.jpg" alt="Encurtido" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Encurtido Especial</span>
+                        <span class="precio">15lps</span>
+                        <p class="plato-descripcion">Encurtido casero con un toque especial navideño.</p>
+                        <img src="img/encurtido.jpg" alt="Encurtido" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Papas personal</span>
-                    <span class="precio">35lps</span>
-                    <p class="plato-descripcion">Crujientes papas fritas porción personal.</p>
-                    <img src="img/papas_personal.jpg" alt="Papas personal" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Papas personal</span>
+                        <span class="precio">35lps</span>
+                        <p class="plato-descripcion">Crujientes papas fritas porción personal.</p>
+                        <img src="img/papas_personal.jpg" alt="Papas personal" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Salsa Extra</span>
-                    <span class="precio">20lps</span>
-                    <p class="plato-descripcion">Salsa adicional para acompañar tus platillos.</p>
-                    <img src="img/salsa_extra.jpg" alt="Salsa Extra" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Salsa Extra</span>
+                        <span class="precio">15lps</span>
+                        <p class="plato-descripcion">Salsa adicional para acompañar tus platillos navideños.</p>
+                        <img src="img/salsa_extra.jpg" alt="Salsa Extra" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="categoria">
-        <h2><i class="fas fa-drumstick-bite"></i> Platos Principales</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Finger 10 unidades</span>
-                    <span class="precio">160lps</span>
-                    <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
-                    <img src="imagenes/finger.jpeg" alt="finger" class="plato-imagen">
-                </div>
-                <div class="plato-info">
-                    Deliciosos dedos de pollo crujientes. 
-                    <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante) agridulce (no picante) o buffalo (picante) por 20lps extra.</span>
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Finger 6 unidades</span>
-                    <span class="precio">120lps</span>
-                    <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
-                    <img src="imagenes/finger.jpeg" alt="finger" class="plato-imagen">
-                </div>
-                <div class="plato-info">
-                    Deliciosos dedos de pollo crujientes. 
-                    <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante) agridulce (no picante) o buffalo (picante) por 20lps extra.</span>
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Alitas 6 unidades</span>
-                    <span class="precio">140lps</span>
-                    <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
-                    <img src="imagenes/alitas.jpg" alt="finger" class="plato-imagen">
-                </div>
-                <div class="plato-info">
-                    Alitas de pollo crujientes por fuera y jugosas por dentro.
-                    <span class="salsa-info">Disponibles en tu salsa favorita: barbacoa (no picante) agridulce (no picante) o buffalo (picante).</span>
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Alitas 12 unidades</span>
-                    <span class="precio">240lps</span>
-                    <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
-                    <img src="imagenes/alitas.jpg" alt="finger" class="plato-imagen">
-                </div>
-                <div class="plato-info">
-                    Alitas de pollo crujientes por fuera y jugosas por dentro.
-                    <span class="salsa-info">Disponibles en tu salsa favorita: barbacoa (no picante) agridulce (no picante) buffalo (picante) o mixtas.</span>
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Pollo a la plancha</span>
-                    <span class="precio">115lps</span>
-                    <p class="plato-descripcion">Pollo a la plancha jugoso y sabroso.</p>
-                    <img src="imagenes/plancha.jpeg" alt="Pollo a la plancha" class="plato-imagen">
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
             </div>
         </div>
-    </div>
 
-    <div class="categoria">
-        <h2><i class="fas fa-hamburger"></i> Hamburguesas y Tortas</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Hamburguesa con papas</span>
-                    <span class="precio">110lps</span>
-                    <p class="plato-descripcion">Deliciosa hamburguesa acompañada de papas fritas crujientes.</p>
-                    <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa con papas" class="plato-imagen">
+        <div class="categoria">
+            <h2><i class="fas fa-drumstick-bite navidad-icon"></i> Platos Principales Navideños</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Finger 10 unidades</span>
+                        <span class="precio">160lps</span>
+                        <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
+                        <img src="imagenes/finger.jpeg" alt="Salsa Extra" class="plato-imagen">
+                    </div>
+                    <div class="plato-info">
+                        Deliciosos dedos de pollo crujientes. 
+                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante) o buffalo (picante) por 20lps extra.</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Hamburguesa sin papas</span>
-                    <span class="precio">80lps</span>
-                    <p class="plato-descripcion">Hamburguesa deliciosa sin acompañamiento de papas.</p>
-                    <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa sin papas" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Finger 6 unidades</span>
+                        <span class="precio">120lps</span>
+                        <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
+                        <img src="imagenes/finger.jpeg" alt="Salsa Extra" class="plato-imagen">
+                    </div>
+                    <div class="plato-info">
+                        Deliciosos dedos de pollo crujientes. 
+                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante) o buffalo (picante) por 20lps extra.</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Torta con papas</span>
-                    <span class="precio">100lps</span>
-                    <p class="plato-descripcion">Torta sabrosa acompañada de papas fritas.</p>
-                    <img src="imagenes/torta.jpg" alt="Torta con papas" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Alitas 6 unidades</span>
+                        <span class="precio">140lps</span>
+                        <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
+                    </div>
+                    <div class="plato-info">
+                        Alitas de pollo crujientes por fuera y jugosas por dentro.
+                        <span class="salsa-info">Disponibles en tu salsa favorita: barbacoa (no picante) o buffalo (picante).</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Torta sin papas</span>
-                    <span class="precio">80lps</span>
-                    <p class="plato-descripcion">Torta deliciosa sin acompañamiento de papas.</p>
-                    <img src="imagenes/torta.jpg" alt="Torta sin papas" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Alitas 12 unidades</span>
+                        <span class="precio">240lps</span>
+                        <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
+                    </div>
+                    <div class="plato-info">
+                        Alitas de pollo crujientes por fuera y jugosas por dentro.
+                        <span class="salsa-info">Disponibles en tu salsa favorita: barbacoa (no picante) o buffalo (picante).</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Pollo a la plancha</span>
+                        <span class="precio">115lps</span>
+                        <p class="plato-descripcion">Pollo a la plancha jugoso y sabroso.</p>
+                        <img src="imagenes/plancha.jpeg" alt="Pollo a la plancha" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="categoria">
-        <h2><i class="fas fa-utensil-spoon"></i> Tacos y Más</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Tacos</span>
-                    <span class="precio">95lps</span>
-                    <p class="plato-descripcion">Auténticos tacos con el sabor de Master Chicken.</p>
-                    <img src="imagenes/tacos.jpg" alt="Tacos" class="plato-imagen">
+        <div class="categoria">
+            <h2><i class="fas fa-hamburger navidad-icon"></i> Hamburguesas y Tortas Navideñas</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Hamburguesa con papas</span>
+                        <span class="precio">110lps</span>
+                        <p class="plato-descripcion">Deliciosa hamburguesa acompañada de papas fritas crujientes.</p>
+                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa con papas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Gringas</span>
-                    <span class="precio">110lps</span>
-                    <p class="plato-descripcion">Deliciosas gringas con el sabor de Master Chicken.</p>
-                    <img src="imagenes/gringas.jpg" alt="Gringas" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Hamburguesa sin papas</span>
+                        <span class="precio">80lps</span>
+                        <p class="plato-descripcion">Hamburguesa deliciosa sin acompañamiento de papas.</p>
+                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa sin papas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Flautas</span>
-                    <span class="precio">95lps</span>
-                    <p class="plato-descripcion">Crujientes flautas rellenas de pollo.</p>
-                    <img src="imagenes/flautas.jpg" alt="Flautas" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Torta con papas</span>
+                        <span class="precio">100lps</span>
+                        <p class="plato-descripcion">Torta sabrosa acompañada de papas fritas.</p>
+                        <img src="imagenes/torta.jpg" alt="Torta con papas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="categoria">
-        <h2><i class="fas fa-bacon"></i> Tajadas</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Tajada muslo pierna</span>
-                    <span class="precio">115lps</span>
-                    <p class="plato-descripcion">Tajadas crujientes acompañadas de muslo y pierna de pollo.</p>
-                    <img src="imagenes/tajadas.jpg" alt="Tajada muslo pierna" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Torta sin papas</span>
+                        <span class="precio">80lps</span>
+                        <p class="plato-descripcion">Torta deliciosa sin acompañamiento de papas.</p>
+                        <img src="imagenes/torta.jpg" alt="Torta sin papas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Tajada pechuga ala</span>
-                    <span class="precio">140lps</span>
-                    <p class="plato-descripcion">Tajadas crujientes acompañadas de pechuga y ala de pollo.</p>
-                    <img src="imagenes/tajadas.jpg" alt="Tajada pechuga ala" class="plato-imagen">
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Chuleta con tajadas</span>
-                    <span class="precio">120lps</span>
-                    <p class="plato-descripcion">Tajadas crujientes acompañadas de una jugosa chuleta.</p>
-                    <img src="imagenes/chuleta.jpg" alt="Chuleta con tajadas" class="plato-imagen">
-                </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
             </div>
         </div>
-    </div>
 
-    <div class="categoria">
-        <h2><i class="fas fa-cheese"></i> Nachos</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Nachos</span>
-                    <span class="precio">110lps</span>
-                    <p class="plato-descripcion">Crujientes nachos con queso y toppings.</p>
-                    <img src="imagenes/nachos.jpg" alt="Nachos" class="plato-imagen">
+        <div class="categoria">
+            <h2><i class="fas fa-utensil-spoon navidad-icon"></i> Tacos y Más</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Tacos</span>
+                        <span class="precio">95lps</span>
+                        <p class="plato-descripcion">Auténticos tacos con el sabor de Master Chicken.</p>
+                        <img src="imagenes/tacos.jpg" alt="Tacos" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Nachos Extra-pollo</span>
-                    <span class="precio">135lps</span>
-                    <p class="plato-descripcion">Nachos con extra porción de pollo, queso y toppings.</p>
-                    <img src="imagenes/nachos.jpg" alt="Nachos Extra-pollo" class="plato-imagen">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Gringas</span>
+                        <span class="precio">110lps</span>
+                        <p class="plato-descripcion">Deliciosas gringas con queso y tu elección de proteína.</p>
+                        <img src="imagenes/gringas.jpg" alt="Gringas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Flautas</span>
+                        <span class="precio">95lps</span>
+                        <p class="plato-descripcion">Crujientes flautas rellenas de pollo o res.</p>
+                        <img src="imagenes/flautas.jpg" alt="Flautas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="categoria">
-        <h2><i class="fas fa-box"></i> Combos</h2>
-        <div class="menu">
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 1</span>
-                    <span class="precio">62lps</span>
-                    <p class="plato-descripcion">Combo económico con 1 pieza de pollo, papas y tortillas.</p>
+        <div class="categoria">
+            <h2><i class="fas fa-bacon navidad-icon"></i> Tajadas</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Tajada muslo pierna</span>
+                        <span class="precio">115lps</span>
+                        <p class="plato-descripcion">Tajadas crujientes acompañadas de muslo y pierna de pollo.</p>
+                        <img src="imagenes/tajadas.jpg" alt="Tajada muslo pierna" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 1 pieza de pollo, papas y tortillas.</div>
-                <img src="img/combo_1.jpg" alt="Combo 1" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 2</span>
-                    <span class="precio">69lps</span>
-                    <p class="plato-descripcion">Combo con 1 muslo de pollo, papas y tortillas.</p>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Tajada pechuga ala</span>
+                        <span class="precio">140lps</span>
+                        <p class="plato-descripcion">Tajadas crujientes acompañadas de pechuga y ala de pollo.</p>
+                        <img src="imagenes/tajadas.jpg" alt="Tajada pechuga ala" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 1 muslo de pollo, papas y tortillas.</div>
-                <img src="img/combo_2.jpg" alt="Combo 2" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 3</span>
-                    <span class="precio">95lps</span>
-                    <p class="plato-descripcion">Combo con 2 piezas de pollo, papas y tortillas.</p>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Chuleta con tajadas</span>
+                        <span class="precio">120lps</span>
+                        <p class="plato-descripcion">Tajadas crujientes acompañadas de una jugosa chuleta.</p>
+                        <img src="imagenes/chuleta.jpg" alt="Chuleta con tajadas" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 2 piezas de pollo, papas y tortillas.</div>
-                <img src="img/combo_3.jpg" alt="Combo 3" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
             </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 4</span>
-                    <span class="precio">110lps</span>
-                    <p class="plato-descripcion">Combo completo con 2 piezas de pollo, papas, ensalada y tortillas.</p>
+        </div>
+
+        <div class="categoria">
+            <h2><i class="fas fa-cheese navidad-icon"></i> Nachos</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Nachos</span>
+                        <span class="precio">110lps</span>
+                        <p class="plato-descripcion">Crujientes nachos con queso y toppings.</p>
+                        <img src="imagenes/nachos.jpg" alt="Nachos" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 2 piezas de pollo, papas, ensalada y tortillas.</div>
-                <img src="img/combo_4.jpg" alt="Combo 4" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 5</span>
-                    <span class="precio">89lps</span>
-                    <p class="plato-descripcion">Combo con 1 pechuga de pollo, papas y tortillas.</p>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Nachos Extra-pollo</span>
+                        <span class="precio">135lps</span>
+                        <p class="plato-descripcion">Nachos con extra porción de pollo, queso y toppings.</p>
+                        <img src="imagenes/nachos.jpg" alt="Nachos Extra-pollo" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 1 pechuga de pollo, papas y tortillas.</div>
-                <img src="img/combo_5.jpg" alt="Combo 5" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
             </div>
-            
-            <div class="plato">
-                <div class="plato-header">
-                    <span class="nombre-plato">Combo 6</span>
-                    <span class="precio">105lps</span>
-                    <p class="plato-descripcion">Combo completo con 1 pechuga, papas, ensalada y tortillas.</p>
+        </div>
+
+        <div class="categoria">
+            <h2><i class="fas fa-box navidad-icon"></i> Combos Navideños</h2>
+            <div class="menu">
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 1</span>
+                        <span class="precio">62lps</span>
+                        <p class="plato-descripcion">Combo económico con 1 pieza de pollo, papas y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 1 pieza de pollo, papas y tortillas.</div>
+                    <img src="img/combo_1.jpg" alt="Combo 1" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
                 </div>
-                <div class="combo-info">Incluye: 1 pechuga, papas, ensalada y tortillas.</div>
-                <img src="img/combo_6.jpg" alt="Combo 6" class="plato-imagen">
-                <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                    <i class="fas fa-info-circle"></i> Ver más
-                </button>
-            </div>
-             <div class="plato">
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 2</span>
+                        <span class="precio">69lps</span>
+                        <p class="plato-descripcion">Combo con 1 muslo de pollo, papas y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 1 muslo de pollo, papas y tortillas.</div>
+                    <img src="img/combo_2.jpg" alt="Combo 2" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 3</span>
+                        <span class="precio">95lps</span>
+                        <p class="plato-descripcion">Combo con 2 piezas de pollo, papas y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 2 piezas de pollo, papas y tortillas.</div>
+                    <img src="img/combo_3.jpg" alt="Combo 3" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 4</span>
+                        <span class="precio">110lps</span>
+                        <p class="plato-descripcion">Combo completo con 2 piezas de pollo, papas, ensalada y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 2 piezas de pollo, papas, ensalada y tortillas.</div>
+                    <img src="img/combo_4.jpg" alt="Combo 4" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 5</span>
+                        <span class="precio">89lps</span>
+                        <p class="plato-descripcion">Combo con 1 pechuga de pollo, papas y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 1 pechuga de pollo, papas y tortillas.</div>
+                    <img src="img/combo_5.jpg" alt="Combo 5" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
+                
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Combo 6</span>
+                        <span class="precio">105lps</span>
+                        <p class="plato-descripcion">Combo completo con 1 pechuga, papas, ensalada y tortillas.</p>
+                    </div>
+                    <div class="combo-info">Incluye: 1 pechuga, papas, ensalada y tortillas.</div>
+                    <img src="img/combo_6.jpg" alt="Combo 6" class="plato-imagen">
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
+                        <i class="fas fa-info-circle"></i> Ver más
+                    </button>
+                </div>
+                
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 7</span>
                         <span class="precio">113lps</span>
@@ -832,9 +973,9 @@
                 
                 <div class="plato">
                     <div class="plato-header">
-                        <span class="nombre-plato">Combo Familiar</span>
+                        <span class="nombre-plato">Combo Familiar Navideño</span>
                         <span class="precio">460lps</span>
-                        <p class="plato-descripcion">Combo ideal para compartir en familia.</p>
+                        <p class="plato-descripcion">Combo ideal para compartir en familia estas fiestas.</p>
                     </div>
                     <div class="combo-info">Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.</div>
                     <img src="img/combo_familiar.jpg" alt="Combo Familiar" class="plato-imagen">
@@ -846,7 +987,7 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-glass-whiskey"></i> Bebidas</h2>
+            <h2><i class="fas fa-glass-whiskey navidad-icon"></i> Bebidas Navideñas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -973,10 +1114,10 @@
         <footer>
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Master Chicken</h3>
+                    <h3>Master Chicken 🎄</h3>
                     <p>El mejor pollo de Honduras</p>
-                    <p>Desde 2015 sirviendo calidad y sabor</p>
-                    <p>¡Tu satisfacción es nuestra prioridad!</p>
+                    <p>Desde 2024 sirviendo calidad y sabor</p>
+                    <p>¡Felices fiestas! 🎅</p>
                 </div>
                 
                 <div class="footer-section">
@@ -989,61 +1130,98 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Terminal: <a href="tel:92667579">9266-7579</a></p>
                     </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>villa santa: <a href="tel:92667579">9266-7579</a></p>
+                    </div>
                     <p>Realiza tus pedidos por teléfono</p>
+                    <p>🎁 ¡Especiales navideños disponibles! 🎁</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Síguenos</h3>
-                    <p>Mantente al día con nuestras promociones</p>
+                    <p>Mantente al día con nuestras promociones navideñas</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/16y5dqgdKc/" target="_blank" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </div>
-                    <p>¡Síguenos para promociones especiales!</p>
+                    <p>¡Síguenos para promociones especiales de Navidad! 🎄</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p class="copyright">&copy; 2025 Master Chicken - Todos los derechos reservados</p>
                 <p>Desarrollado con <span class="heart">❤</span> por Carlos Reyes</p>
+                <p style="margin-top: 10px; color: #FFD700;">🎄 ¡Feliz Navidad y Próspero Año Nuevo! 🎅</p>
             </div>
         </footer>
     </div>
-        </div>
-    </div>
-</div>
 
-<div class="notification" id="notification"></div>
-
-<script>
-    function togglePlatoInfo(button) {
-        const plato = button.closest('.plato');
-        if (plato) {
-            plato.classList.toggle('expanded');
-            const icon = button.querySelector('i');
-            const text = button.childNodes[2]; // Acceder al nodo de texto
-            if (plato.classList.contains('expanded')) {
-                icon.className = 'fas fa-minus-circle';
-                text.textContent = ' Ver menos';
-            } else {
-                icon.className = 'fas fa-info-circle';
-                text.textContent = ' Ver más';
+    <div class="notification" id="notification"></div>
+    
+    <script>
+        // Efecto de nieve
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const snowflakeCount = 80; // Cantidad de copos de nieve
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 8 + 3;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                
+                // Posición inicial aleatoria
+                snowflake.style.left = `${Math.random() * 100}%`;
+                
+                // Duración y retraso aleatorio de la animación
+                const duration = Math.random() * 5 + 5;
+                const delay = Math.random() * 5;
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.animationDelay = `${delay}s`;
+                
+                // Opacidad aleatoria
+                snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                snowflakesContainer.appendChild(snowflake);
             }
         }
-    }
-
-    function showNotification(message) {
-        const notification = document.getElementById('notification');
-        notification.textContent = message;
-        notification.style.display = 'block';
+        
+        // Función para mostrar notificaciones
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Función para expandir/contraer información del plato
+        function togglePlatoInfo(button) {
+            const plato = button.parentElement;
+            plato.classList.toggle('expanded');
+            
+            if (plato.classList.contains('expanded')) {
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos';
+                showNotification('🎄 ¡Disfruta de nuestro menú navideño! 🎅');
+            } else {
+                button.innerHTML = '<i class="fas fa-info-circle"></i> Ver más';
+            }
+        }
+        
+        // Crear nieve cuando la página cargue
+        document.addEventListener('DOMContentLoaded', createSnowflakes);
+        
+        // Mensaje de bienvenida navideño
         setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
-    }
-</script>
+            showNotification('🎄 ¡Bienvenido a Master Chicken! ¡Feliz Navidad! 🎅');
+        }, 1000);
+    </script>
 </body>
 </html>
-
-
-
