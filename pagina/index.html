@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Chicken - San Valentín ❤️</title>
+    <title>Master Chicken - Marzo 2026 🌿</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,16 +14,16 @@
         }
         
         body {
-            background: linear-gradient(135deg, #ffeff6 0%, #fff0f5 100%);
-            color: #5a3d5c;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #2e5c3e;
             padding: 20px;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
         
-        /* Efecto de corazones flotantes */
-        .hearts {
+        /* Efecto de hojas flotantes */
+        .leaves {
             position: fixed;
             top: 0;
             left: 0;
@@ -33,24 +33,25 @@
             z-index: 999;
         }
         
-        .heart {
+        .leaf {
             position: absolute;
-            color: #ff4081;
-            font-size: 1.2rem;
-            opacity: 0.7;
-            animation: float linear infinite;
+            color: #4caf50;
+            font-size: 1.5rem;
+            opacity: 0.5;
+            animation: floatLeaf linear infinite;
         }
         
-        @keyframes float {
+        @keyframes floatLeaf {
             0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.8;
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 0.4;
             }
             50% {
-                opacity: 1;
+                transform: translateX(20px) translateY(50vh) rotate(180deg);
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateX(40px) translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
         }
@@ -66,86 +67,83 @@
         header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 30px;
-            background: linear-gradient(45deg, #ff4081, #ff79a6);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 64, 129, 0.3);
-            border: 3px solid #ffebee;
+            padding: 25px;
+            background: linear-gradient(45deg, #2e7d32, #388e3c);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.3);
+            border: 2px solid #ffb300;
             position: relative;
             overflow: hidden;
         }
         
         header::before {
-            content: "❤️ 💘 ❤️";
+            content: "🌿 🌱 🍃";
             position: absolute;
             top: 10px;
             left: 10px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
         
         header::after {
-            content: "❤️ 💘 ❤️";
+            content: "🍃 🌱 🌿";
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
         
         h1 {
             color: #ffffff;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(to right, #ffffff, #ffebee);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, #ffb300, #ffa000);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-family: 'Brush Script MT', cursive;
         }
         
         .subtitle {
-            color: #fff;
-            font-size: 1.3rem;
+            color: #f0f0f0;
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
+            padding: 10px;
+            background-color: rgba(255, 179, 0, 0.3);
+            border-radius: 10px;
         }
         
-        .valentine-icon {
+        .march-icon {
             margin: 0 5px;
         }
         
         .categoria {
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.15);
-            border: 2px solid #ffebee;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.15);
+            border: 1px solid #ffe082;
             position: relative;
             overflow: hidden;
         }
         
         .categoria::before {
-            content: "💖";
+            content: "🌱";
             position: absolute;
-            top: 15px;
-            left: 15px;
-            opacity: 0.5;
-            font-size: 1.5rem;
+            top: 10px;
+            left: 10px;
+            opacity: 0.3;
+            font-size: 1.2rem;
         }
         
         .categoria h2 {
-            color: #ff4081;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #ff79a6;
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffb300;
             text-align: center;
-            font-family: 'Georgia', serif;
         }
         
         .menu {
@@ -158,27 +156,18 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(255, 64, 129, 0.1);
-            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
             position: relative;
-            padding: 25px;
-            color: #5a3d5c;
-            border: 2px solid #ffebee;
+            padding: 20px;
+            color: #333;
+            border: 1px solid #ffe082;
         }
         
         .plato:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(255, 64, 129, 0.2);
-            border-color: #ff4081;
-        }
-        
-        .plato::after {
-            content: "💝";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            opacity: 0.3;
-            font-size: 1.2rem;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.2);
+            border-color: #ffb300;
         }
         
         .plato-header {
@@ -186,28 +175,27 @@
         }
         
         .nombre-plato {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: #d81b60;
+            color: #2e7d32;
             display: block;
             margin-bottom: 10px;
-            font-family: 'Georgia', serif;
         }
         
         .precio {
             position: absolute;
             top: 0;
             right: 0;
-            background: linear-gradient(to right, #ff4081, #d81b60);
+            background: linear-gradient(to right, #ffb300, #ff8f00);
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+            box-shadow: 0 3px 8px rgba(255, 179, 0, 0.3);
         }
         
         .plato-descripcion {
-            color: #7a5c7d;
+            color: #5a6a7c;
             margin-bottom: 20px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -218,54 +206,54 @@
         
         .plato-imagen {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 10px;
             display: none;
-            margin: 20px 0;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border: 3px solid #ffebee;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px solid #ffe082;
         }
         
         .combo-info, .plato-info {
             display: none;
-            padding: 20px;
-            background-color: rgba(255, 64, 129, 0.08);
-            border-radius: 15px;
-            margin-top: 20px;
-            border-left: 5px solid #ff4081;
+            padding: 15px;
+            background-color: rgba(255, 179, 0, 0.05);
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #ffb300;
         }
         
         .salsa-info {
             display: block;
             margin-top: 10px;
             font-style: italic;
-            color: #d81b60;
+            color: #2e7d32;
         }
         
         .ver-mas-btn {
-            background: linear-gradient(to right, #ff4081, #d81b60);
+            background: linear-gradient(to right, #2e7d32, #1b5e20);
             color: white;
             border: none;
-            padding: 15px 25px;
-            border-radius: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
             width: 100%;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.3);
+            gap: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
         }
         
         .ver-mas-btn:hover {
-            background: linear-gradient(to right, #ff79a6, #ff4081);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 64, 129, 0.4);
+            background: linear-gradient(to right, #388e3c, #2e7d32);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
         }
         
         .ver-mas-btn:active {
@@ -305,29 +293,28 @@
         }
         
         footer {
-            background: linear-gradient(to right, #5a3d5c, #7a5c7d);
+            background: linear-gradient(to right, #1b5e20, #2e7d32);
             color: white;
-            padding: 50px 30px;
-            margin-top: 80px;
-            border-radius: 20px;
-            border-top: 5px solid #ff4081;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-radius: 15px;
+            border-top: 3px solid #ffb300;
             position: relative;
             overflow: hidden;
         }
         
         footer::before {
-            content: "💝 ¡Feliz San Valentín! ❤️";
+            content: "🌿 Marzo 2026 🌱";
             position: absolute;
-            top: -20px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: #ff4081;
-            color: white;
-            padding: 10px 30px;
-            border-radius: 30px;
+            background: #ffb300;
+            color: #1b5e20;
+            padding: 5px 20px;
+            border-radius: 20px;
             font-weight: bold;
             z-index: 2;
-            box-shadow: 0 5px 20px rgba(255, 64, 129, 0.4);
         }
         
         .footer-content {
@@ -341,113 +328,67 @@
         .footer-section {
             flex: 1;
             min-width: 250px;
-            margin-bottom: 30px;
-            padding: 0 20px;
+            margin-bottom: 20px;
+            padding: 0 15px;
         }
         
         .footer-section h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            color: #ff79a6;
-            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #ffb300;
         }
         
         .contact-info {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .contact-info i {
-            margin-right: 15px;
-            color: #ff79a6;
-            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #ffb300;
         }
         
         .contact-info a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s;
         }
         
         .contact-info a:hover {
             text-decoration: underline;
-            color: #ff79a6;
+            color: #ffb300;
         }
         
         .social-icons {
             display: flex;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 15px;
         }
         
         .social-icons a {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             transition: all 0.3s;
         }
         
         .social-icons a:hover {
-            color: #ff79a6;
-            transform: translateY(-5px) scale(1.2);
+            color: #ffb300;
+            transform: translateY(-3px);
         }
         
         .footer-bottom {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .copyright {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
         
-        .heart {
-            color: #ff4081;
-        }
-        
-        .device-test {
-            text-align: center;
-            margin: 20px 0;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.15);
-            border: 2px solid #ffebee;
-        }
-        
-        .test-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .test-btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        
-        .success { 
-            background: linear-gradient(to right, #4CAF50, #45a049); 
-            color: white; 
-        }
-        
-        .warning { 
-            background: linear-gradient(to right, #ff4081, #d81b60); 
-            color: white; 
-        }
-        
-        .test-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        .leaf-icon {
+            color: #4caf50;
         }
         
         @media (max-width: 768px) {
@@ -456,183 +397,123 @@
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .test-buttons {
-                flex-direction: column;
+                font-size: 1rem;
             }
             
             .footer-content {
                 flex-direction: column;
             }
-            
-            .categoria h2 {
-                font-size: 1.6rem;
-            }
         }
         
         .notification {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(to right, #ff4081, #d81b60);
+            background: linear-gradient(to right, #2e7d32, #1b5e20);
             color: white;
-            padding: 20px 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(255, 64, 129, 0.4);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
             z-index: 1000;
             display: none;
             animation: fadeIn 0.5s ease;
             text-align: center;
             max-width: 90%;
-            border: 2px solid #ffebee;
-            font-weight: bold;
+            border: 1px solid #ffb300;
         }
         
-        /* Decoraciones de amor adicionales */
-        .love-deco {
+        /* Decoraciones de marzo */
+        .march-deco {
             position: fixed;
             z-index: 998;
-            font-size: 2rem;
-            opacity: 0.7;
+            font-size: 1.5rem;
+            opacity: 0.6;
         }
         
         .deco-1 {
             top: 10%;
             left: 5%;
             transform: rotate(-15deg);
-            color: #ff4081;
+            color: #2e7d32;
         }
         
         .deco-2 {
             top: 15%;
             right: 5%;
             transform: rotate(15deg);
-            color: #ff79a6;
+            color: #ffb300;
         }
         
         .deco-3 {
             bottom: 20%;
             left: 3%;
             transform: rotate(-10deg);
-            color: #d81b60;
+            color: #388e3c;
         }
         
         .deco-4 {
             bottom: 15%;
             right: 3%;
             transform: rotate(10deg);
-            color: #ff4081;
+            color: #ffb300;
         }
         
-        .valentine-message {
+        .march-message {
             text-align: center;
-            background: linear-gradient(45deg, #ff4081, #ff79a6);
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 3px solid #ffebee;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.3);
-        }
-        
-        .romantic-border {
-            position: relative;
+            background: linear-gradient(45deg, #2e7d32, #388e3c);
             padding: 10px;
-            border-radius: 15px;
-            background: repeating-linear-gradient(
-                45deg,
-                #ff4081,
-                #ff4081 10px,
-                #ff79a6 10px,
-                #ff79a6 20px
-            );
-        }
-        
-        .couple-special {
-            background: linear-gradient(45deg, #fff0f5, #ffebee);
-            border: 3px dashed #ff4081;
-            position: relative;
-        }
-        
-        .couple-special::before {
-            content: "💑 Especial para Parejas";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff4081;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ffb300;
+            font-weight: bold;
             color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
         }
         
-        .special-offer {
-            background: linear-gradient(45deg, #fffaf0, #fff8e1);
-            border: 3px solid #ffd700;
-            position: relative;
-        }
-        
-        .special-offer::before {
-            content: "💝 Oferta Especial";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffd700;
-            color: #5a3d5c;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        /* Animación de latido */
-        @keyframes heartbeat {
+        /* Animación de crecimiento */
+        @keyframes grow {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
-        .heartbeat {
-            animation: heartbeat 1.5s infinite;
+        .grow {
+            animation: grow 3s infinite;
             display: inline-block;
         }
     </style>
 </head>
 <body>
-    <!-- Efecto de corazones flotantes -->
-    <div class="hearts" id="hearts"></div>
+    <!-- Efecto de hojas flotantes -->
+    <div class="leaves" id="leaves"></div>
     
-    <!-- Decoraciones de amor -->
-    <div class="love-deco deco-1">❤️</div>
-    <div class="love-deco deco-2">💝</div>
-    <div class="love-deco deco-3">💘</div>
-    <div class="love-deco deco-4">💖</div>
+    <!-- Decoraciones de marzo -->
+    <div class="march-deco deco-1">🌿</div>
+    <div class="march-deco deco-2">🌼</div>
+    <div class="march-deco deco-3">🌱</div>
+    <div class="march-deco deco-4">🍃</div>
     
     <div class="container">
         <header>
             <h1>🍗 Master Chicken 🍗</h1>
-            <p class="subtitle">💘 ¡Feliz San Valentín! 💘 El mejor pollo de Honduras - Desde 2015 sirviendo amor y sabor</p>
+            <p class="subtitle">🌿 Marzo 2026 🌿 El mejor pollo de Honduras - Desde 2015 sirviendo calidad y sabor</p>
+            <div class="march-message">
+                🌱 ¡Nuevos sabores y promociones para este mes! 🌼
+            </div>
         </header>
 
         <div class="categoria">
-            <h2><i class="fas fa-utensils valentine-icon"></i> Entradas del Amor</h2>
+            <h2><i class="fas fa-utensils march-icon"></i> Entradas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Ensalada</span>
                         <span class="precio">25lps</span>
-                        <p class="plato-descripcion">Fresca ensalada de repollo.</p>
+                        <p class="plato-descripcion">Fresca ensalada con ingredientes seleccionados.</p>
                         <img src="img/ensalada.jpg" alt="Ensalada" class="plato-imagen">
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
@@ -642,9 +523,9 @@
                 
                 <div class="plato">
                     <div class="plato-header">
-                        <span class="nombre-plato">Encurtido Especial</span>
+                        <span class="nombre-plato">Encurtido</span>
                         <span class="precio">15lps</span>
-                        <p class="plato-descripcion">Encurtido casero con un toque especial para enamorados.</p>
+                        <p class="plato-descripcion">Encurtido casero con un toque especial.</p>
                         <img src="img/encurtido.jpg" alt="Encurtido" class="plato-imagen">
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
@@ -654,22 +535,10 @@
                 
                 <div class="plato">
                     <div class="plato-header">
-                        <span class="nombre-plato">Papas Corazón</span>
+                        <span class="nombre-plato">Papas personal</span>
                         <span class="precio">35lps</span>
-                        <p class="plato-descripcion">Crujientes papas fritas</p>
+                        <p class="plato-descripcion">Crujientes papas fritas porción personal.</p>
                         <img src="img/papas_personal.jpg" alt="Papas personal" class="plato-imagen">
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
-                </div>
-                
-                <div class="plato">
-                    <div class="plato-header">
-                        <span class="nombre-plato">Salsa Especial</span>
-                        <span class="precio">20lps</span>
-                        <p class="plato-descripcion">Salsa especial con toque romántico para acompañar tus platillos.</p>
-                        <img src="img/salsa_extra.jpg" alt="Salsa Extra" class="plato-imagen">
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
                         <i class="fas fa-info-circle"></i> Ver más
@@ -679,18 +548,17 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-drumstick-bite valentine-icon"></i> Platos Principales Románticos</h2>
+            <h2><i class="fas fa-drumstick-bite march-icon"></i> Platos Principales</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Finger 10 unidades</span>
                         <span class="precio">165lps</span>
-                        <p class="plato-descripcion">10 deliciosos dedos de pollo crujientes.</p>
+                        <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
                     </div>
                     <div class="plato-info">
-                        Deliciosos dedos de pollo crujientes. 
-                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante), agridulce(no picante), buffalo (picante) o sweet chilli (picante suave) por 20lps extra.</span>
-                        <img src="imagenes/finger.jpeg" alt="Pollo a la plancha" class="plato-imagen">
+                        Deliciosos dedos de pollo crujientes.
+                        <span class="salsa-info">Disponibles con salsa extra por 20lps. Sabores: Barbacoa, Buffalo, Sweet Chilli y Agridulce.</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
                         <i class="fas fa-info-circle"></i> Ver más
@@ -701,12 +569,11 @@
                     <div class="plato-header">
                         <span class="nombre-plato">Finger 6 unidades</span>
                         <span class="precio">125lps</span>
-                        <p class="plato-descripcion">6 deliciosos dedos de pollo crujientes.</p>
+                        <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
                     </div>
                     <div class="plato-info">
-                        Deliciosos dedos de pollo crujientes. 
-                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante), agridulce(no picante), buffalo (picante) o sweet chilli (picante suave) por 20lps extra.</span>
-                        <img src="imagenes/finger.jpeg" alt="Pollo a la plancha" class="plato-imagen">
+                        Deliciosos dedos de pollo crujientes.
+                        <span class="salsa-info">Disponibles con salsa extra por 20lps. Sabores: Barbacoa, Buffalo, Sweet Chilli y Agridulce.</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
                         <i class="fas fa-info-circle"></i> Ver más
@@ -716,13 +583,12 @@
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Alitas 6 unidades</span>
-                        <span class="precio">150lps</span>
+                        <span class="precio">140lps</span>
                         <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
                     </div>
                     <div class="plato-info">
                         Alitas de pollo crujientes por fuera y jugosas por dentro.
-                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante), agridulce(no picante), buffalo (picante) o sweet chilli (picante suave).</span>
-                        <img src="imagenes/alitas.jpg" alt="Pollo a la plancha" class="plato-imagen">
+                        <span class="salsa-info">Disponibles en tu salsa favorita: Barbacoa, Buffalo, Sweet Chilli o Agridulce.</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
                         <i class="fas fa-info-circle"></i> Ver más
@@ -732,13 +598,12 @@
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Alitas 12 unidades</span>
-                        <span class="precio">250lps</span>
+                        <span class="precio">240lps</span>
                         <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
                     </div>
                     <div class="plato-info">
                         Alitas de pollo crujientes por fuera y jugosas por dentro.
-                        <span class="salsa-info">También disponibles en tu salsa favorita: barbacoa (no picante), agridulce(no picante), buffalo (picante) o sweet chilli (picante suave).</span>
-                        <img src="imagenes/alitas.jpg" alt="Pollo a la plancha" class="plato-imagen">
+                        <span class="salsa-info">Disponibles en tu salsa favorita: Barbacoa, Buffalo, Sweet Chilli o Agridulce.</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
                         <i class="fas fa-info-circle"></i> Ver más
@@ -760,7 +625,7 @@
         </div>
         
         <div class="categoria">
-            <h2><i class="fas fa-hamburger valentine-icon"></i> Hamburguesas y Tortas Románticas</h2>
+            <h2><i class="fas fa-hamburger march-icon"></i> Hamburguesas y Tortas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -801,7 +666,7 @@
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Torta sin papas</span>
-                        <span class="precio">85lps</span>
+                        <span class="precio">90lps</span>
                         <p class="plato-descripcion">Torta deliciosa sin acompañamiento de papas.</p>
                         <img src="imagenes/torta.jpg" alt="Torta sin papas" class="plato-imagen">
                     </div>
@@ -813,7 +678,7 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-utensil-spoon valentine-icon"></i> Tacos y Más</h2>
+            <h2><i class="fas fa-utensil-spoon march-icon"></i> Tacos y Más</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -842,7 +707,7 @@
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Flautas</span>
-                        <span class="precio">100lps</span>
+                        <span class="precio">95lps</span>
                         <p class="plato-descripcion">Crujientes flautas rellenas de pollo o res.</p>
                         <img src="imagenes/flautas.jpg" alt="Flautas" class="plato-imagen">
                     </div>
@@ -854,7 +719,7 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-bacon valentine-icon"></i> Tajadas</h2>
+            <h2><i class="fas fa-bacon march-icon"></i> Tajadas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -895,7 +760,7 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-cheese valentine-icon"></i> Nachos</h2>
+            <h2><i class="fas fa-cheese march-icon"></i> Nachos</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -924,7 +789,7 @@
         </div>
 
         <div class="categoria">
-            <h2><i class="fas fa-box valentine-icon"></i> Combos Románticos</h2>
+            <h2><i class="fas fa-box march-icon"></i> Combos</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -1058,9 +923,9 @@
                 
                 <div class="plato">
                     <div class="plato-header">
-                        <span class="nombre-plato">Combo Familiar Romántico</span>
+                        <span class="nombre-plato">Combo Familiar</span>
                         <span class="precio">499lps</span>
-                        <p class="plato-descripcion">Combo ideal para compartir en familia o con amigos especiales.</p>
+                        <p class="plato-descripcion">Combo ideal para compartir en familia.</p>
                     </div>
                     <div class="combo-info">Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.</div>
                     <img src="img/combo_familiar.jpg" alt="Combo Familiar" class="plato-imagen">
@@ -1070,13 +935,14 @@
                 </div>
             </div>
         </div>
+        
         <footer>
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Master Chicken ❤️</h3>
+                    <h3>Master Chicken 🌿</h3>
                     <p>El mejor pollo de Honduras</p>
-                    <p>Desde 2015 sirviendo amor y sabor</p>
-                    <p>¡Celebra el amor con nosotros! 💘</p>
+                    <p>Desde 2015 sirviendo calidad y sabor</p>
+                    <p>¡Marzo 2026! 🌼</p>
                 </div>
                 
                 <div class="footer-section">
@@ -1089,28 +955,30 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Terminal: <a href="tel:92667579">9266-7579</a></p>
                     </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Villa Santa: <a href="tel:32464527">3246-4527</a></p>
+                    </div>
                     <p>Realiza tus pedidos por teléfono</p>
-                    <p>💝 ¡Especiales de San Valentín disponibles! 💝</p>
+                    <p>🌱 ¡Nuevos sabores para marzo! 🌿</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Síguenos</h3>
-                    <p>Mantente al día con nuestras promociones románticas</p>
+                    <p>Mantente al día con nuestras promociones</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/16y5dqgdKc/" target="_blank" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </div>
-                    <p>¡Síguenos para promociones especiales de San Valentín! ❤️</p>
+                    <p>¡Síguenos para más novedades! 🌻</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p class="copyright">&copy; 2025 Master Chicken - Todos los derechos reservados</p>
-                <p>Desarrollado con <span class="heart">❤</span> por Carlos Reyes</p>
-                <p style="margin-top: 15px; color: #ff79a6; font-weight: bold;">
-                    💘 ¡Feliz San Valentín! Que el amor siempre los acompañe 💝
-                </p>
+                <p>Desarrollado con <span class="leaf-icon">🌿</span> por Carlos Reyes</p>
+                <p style="margin-top: 10px; color: #ffb300;">🌼 Marzo 2026 - Sabores que renuevan la primavera 🌱</p>
             </div>
         </footer>
     </div>
@@ -1118,43 +986,33 @@
     <div class="notification" id="notification"></div>
     
     <script>
-        // Efecto de corazones flotantes
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const heartCount = 50; // Cantidad de corazones
+        // Efecto de hojas flotantes
+        function createLeaves() {
+            const leavesContainer = document.getElementById('leaves');
+            const leafCount = 50;
             
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = getRandomHeart();
+            for (let i = 0; i < leafCount; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
                 
-                // Tamaño aleatorio
-                const size = Math.random() * 30 + 20;
-                heart.style.fontSize = `${size}px`;
+                const leafSymbols = ['🌿', '🍃', '🌱', '🍂', '🌾'];
+                leaf.innerHTML = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
                 
-                // Posición inicial aleatoria
-                heart.style.left = `${Math.random() * 100}%`;
+                const size = Math.random() * 15 + 15;
+                leaf.style.fontSize = `${size}px`;
+                leaf.style.left = `${Math.random() * 100}%`;
                 
-                // Duración y retraso aleatorio de la animación
                 const duration = Math.random() * 8 + 8;
                 const delay = Math.random() * 5;
-                heart.style.animationDuration = `${duration}s`;
-                heart.style.animationDelay = `${delay}s`;
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.animationDelay = `${delay}s`;
                 
-                // Opacidad aleatoria
-                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                leaf.style.opacity = Math.random() * 0.5 + 0.2;
                 
-                heartsContainer.appendChild(heart);
+                leavesContainer.appendChild(leaf);
             }
         }
         
-        // Función para obtener corazones aleatorios
-        function getRandomHeart() {
-            const hearts = ['❤️', '💘', '💝', '💖', '💗', '💓', '💞', '💕'];
-            return hearts[Math.floor(Math.random() * hearts.length)];
-        }
-        
-        // Función para mostrar notificaciones
         function showNotification(message) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
@@ -1165,38 +1023,23 @@
             }, 3000);
         }
         
-        // Función para expandir/contraer información del plato
         function togglePlatoInfo(button) {
             const plato = button.parentElement;
             plato.classList.toggle('expanded');
             
             if (plato.classList.contains('expanded')) {
                 button.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos';
-                showNotification('💝 ¡Disfruta de nuestro menú especial de San Valentín! ❤️');
+                showNotification('🌿 ¡Descubre nuestros platillos! 🌱');
             } else {
                 button.innerHTML = '<i class="fas fa-info-circle"></i> Ver más';
             }
         }
         
-        // Crear corazones cuando la página cargue
-        document.addEventListener('DOMContentLoaded', createHearts);
+        document.addEventListener('DOMContentLoaded', createLeaves);
         
-        // Mensaje de bienvenida romántico
         setTimeout(() => {
-            showNotification('💘 ¡Bienvenido a Master Chicken! ¡Feliz San Valentín! ❤️');
+            showNotification('🌼 ¡Bienvenido a Master Chicken! Marzo 2026 🌿');
         }, 1000);
-        
-        // Agregar animación de latido a algunos elementos
-        function addHeartbeatAnimation() {
-            const specialTitles = document.querySelectorAll('.categoria h2');
-            specialTitles.forEach(title => {
-                title.classList.add('heartbeat');
-            });
-        }
-        
-        // Iniciar animaciones adicionales
-        document.addEventListener('DOMContentLoaded', addHeartbeatAnimation);
     </script>
 </body>
-
 </html>
