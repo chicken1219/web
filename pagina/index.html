@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Chicken - Mayo 2026 🌿</title>
+    <title>Master Chicken - 2° Aniversario 🎉</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,18 +12,15 @@
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            color: #2e5c3e;
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 40%, #1a2a4a 100%);
+            color: #f5f5f5;
             padding: 20px;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
-        
-        /* Efecto de hojas flotantes */
-        .leaves {
+        .confeti {
             position: fixed;
             top: 0;
             left: 0;
@@ -31,31 +28,19 @@
             height: 100%;
             pointer-events: none;
             z-index: 999;
+            overflow: hidden;
         }
-        
-        .leaf {
+        .confeti-piece {
             position: absolute;
-            color: #4caf50;
-            font-size: 1.5rem;
-            opacity: 0.5;
-            animation: floatLeaf linear infinite;
+            width: 10px;
+            height: 10px;
+            opacity: 0.8;
+            animation: confetiFall linear infinite;
         }
-        
-        @keyframes floatLeaf {
-            0% {
-                transform: translateY(-10px) rotate(0deg);
-                opacity: 0.4;
-            }
-            50% {
-                transform: translateX(20px) translateY(50vh) rotate(180deg);
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateX(40px) translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+        @keyframes confetiFall {
+            0% { transform: translateY(-10px) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(720deg); }
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -63,147 +48,262 @@
             position: relative;
             z-index: 1;
         }
-        
-        header {
+        .anniversary-banner {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: linear-gradient(45deg, #2e7d32, #388e3c);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.3);
-            border: 2px solid #ffb300;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #f7971e, #ffd200, #f7971e);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+            border: 4px solid #fff;
             position: relative;
             overflow: hidden;
         }
-        
-        header::before {
-            content: "🌿 🌱 🍃";
+        .anniversary-banner::before {
+            content: "🎈 🎉 🎊";
             position: absolute;
             top: 10px;
-            left: 10px;
-            font-size: 1.5rem;
+            left: 20px;
+            font-size: 2.5rem;
+            opacity: 0.5;
         }
-        
-        header::after {
-            content: "🍃 🌱 🌿";
+        .anniversary-banner::after {
+            content: "🎊 🎉 🎈";
             position: absolute;
             top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
+            right: 20px;
+            font-size: 2.5rem;
+            opacity: 0.5;
         }
-        
-        h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(to right, #ffb300, #ffa000);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .anniversary-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1a0b2e;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
+            margin-bottom: 5px;
         }
-        
-        .subtitle {
-            color: #f0f0f0;
+        .anniversary-sub {
+            font-size: 1.3rem;
+            color: #1a0b2e;
+            font-weight: 600;
+            background: rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 5px 25px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+        }
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px 0 10px;
+        }
+        .countdown-item {
+            background: rgba(26, 11, 46, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 15px 25px;
+            border-radius: 15px;
+            min-width: 100px;
+            border: 2px solid #ffd200;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .countdown-item span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffd200;
+            line-height: 1.2;
+        }
+        .countdown-item small {
+            font-size: 0.9rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .countdown-message {
+            margin-top: 10px;
             font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: rgba(255, 179, 0, 0.3);
-            border-radius: 10px;
+            font-weight: 600;
+            color: #1a0b2e;
+            background: rgba(255,255,255,0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
         }
-        
-        .march-icon {
-            margin: 0 5px;
+
+        /* Promociones destacadas - ocultas por defecto */
+        .promo-highlight {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
         }
-        
+        .promo-highlight.show {
+            display: grid;
+        }
+        .promo-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255,215,0,0.3);
+            transition: all 0.3s;
+        }
+        .promo-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            background: rgba(255,255,255,0.2);
+        }
+        .promo-card i {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+        .promo-card h4 {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .promo-card p {
+            color: #eee;
+            font-size: 0.9rem;
+        }
+        .promo-tag {
+            display: inline-block;
+            background: #ff6b6b;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Ocultar promociones en platos por defecto */
+        .promo-badge {
+            display: none;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            color: #1a0b2e;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+            margin-top: 5px;
+        }
+        .promo-badge.show {
+            display: inline-block;
+        }
+        .promo-badge i {
+            margin-right: 4px;
+        }
+
+        /* Productos promocionales (fresco, quequito) ocultos por defecto */
+        .plato.promo-item {
+            display: none;
+        }
+        .plato.promo-item.show {
+            display: block;
+        }
+
+        /* Categorías */
         .categoria {
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.15);
-            border: 1px solid #ffe082;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
         }
-        
         .categoria::before {
-            content: "🌱";
+            content: "🎉";
             position: absolute;
             top: 10px;
-            left: 10px;
-            opacity: 0.3;
-            font-size: 1.2rem;
+            left: 15px;
+            font-size: 1.5rem;
+            opacity: 0.2;
         }
-        
         .categoria h2 {
-            color: #2e7d32;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 25px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ffb300;
+            border-bottom: 3px solid #ff6b6b;
             text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        
+        .categoria h2 i {
+            margin-right: 10px;
+            color: #ff6b6b;
+        }
         .menu {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
         }
-        
         .plato {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             padding: 20px;
             color: #333;
-            border: 1px solid #ffe082;
+            border: 2px solid transparent;
+            cursor: pointer;
         }
-        
         .plato:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.2);
-            border-color: #ffb300;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
         }
-        
         .plato-header {
             position: relative;
         }
-        
         .nombre-plato {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #2e7d32;
+            color: #1a0b2e;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            padding-right: 80px;
         }
-        
         .precio {
             position: absolute;
             top: 0;
             right: 0;
-            background: linear-gradient(to right, #ffb300, #ff8f00);
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 8px 15px;
+            padding: 6px 15px;
             border-radius: 20px;
             font-weight: bold;
-            box-shadow: 0 3px 8px rgba(255, 179, 0, 0.3);
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(238, 90, 36, 0.4);
+            border: 1px solid #ffd700;
         }
-        
+        .precio::after {
+            content: "🎈";
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
         .plato-descripcion {
             color: #5a6a7c;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
-        
         .plato-imagen {
             width: 100%;
             height: 200px;
@@ -212,34 +312,35 @@
             display: none;
             margin: 15px 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border: 2px solid #ffe082;
+            border: 2px solid #ffd700;
         }
-        
         .combo-info, .plato-info {
             display: none;
             padding: 15px;
-            background-color: rgba(255, 179, 0, 0.05);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 107, 0.05));
             border-radius: 10px;
             margin-top: 15px;
-            border-left: 4px solid #ffb300;
+            border-left: 4px solid #ff6b6b;
+            font-size: 0.95rem;
         }
-        
         .salsa-info {
             display: block;
             margin-top: 10px;
-            font-style: italic;
-            color: #2e7d32;
+            color: #ee5a24;
+            font-weight: 500;
+            padding: 8px 12px;
+            background: rgba(238, 90, 36, 0.05);
+            border-radius: 8px;
         }
-        
         .ver-mas-btn {
-            background: linear-gradient(to right, #2e7d32, #1b5e20);
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
             color: white;
             border: none;
             padding: 12px 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             width: 100%;
             font-size: 1rem;
             display: flex;
@@ -247,267 +348,229 @@
             justify-content: center;
             gap: 8px;
             margin-top: 15px;
-            box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
         }
-        
         .ver-mas-btn:hover {
-            background: linear-gradient(to right, #388e3c, #2e7d32);
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
         }
-        
-        .ver-mas-btn:active {
-            transform: translateY(0);
+        .plato.expanded {
+            border-color: #ffd700;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
         }
-        
         .plato.expanded .plato-descripcion {
             display: block;
             -webkit-line-clamp: unset;
         }
-        
         .plato.expanded .plato-imagen {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
         .plato.expanded .combo-info,
         .plato.expanded .plato-info {
             display: block;
             animation: slideDown 0.5s ease;
         }
-        
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
-        
         @keyframes slideDown {
-            from { 
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
         footer {
-            background: linear-gradient(to right, #1b5e20, #2e7d32);
+            background: linear-gradient(135deg, #1a0b2e, #2d1b4e);
             color: white;
-            padding: 40px 20px;
+            padding: 50px 20px 30px;
             margin-top: 60px;
-            border-radius: 15px;
-            border-top: 3px solid #ffb300;
+            border-radius: 20px;
+            border-top: 4px solid #ffd700;
             position: relative;
             overflow: hidden;
         }
-        
         footer::before {
-            content: "🌿 Marzo 2026 🌱";
+            content: "🎉 ¡2 Años de Sabor! 🎉";
             position: absolute;
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: #ffb300;
-            color: #1b5e20;
-            padding: 5px 20px;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            color: #1a0b2e;
+            padding: 5px 30px;
             border-radius: 20px;
-            font-weight: bold;
+            font-weight: 900;
             z-index: 2;
+            border: 2px solid #fff;
+            white-space: nowrap;
+            font-size: 1.1rem;
         }
-        
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
+            gap: 30px;
         }
-        
         .footer-section {
             flex: 1;
             min-width: 250px;
-            margin-bottom: 20px;
             padding: 0 15px;
         }
-        
         .footer-section h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: #ffb300;
+            color: #ffd700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
         .contact-info {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+            gap: 10px;
         }
-        
         .contact-info i {
-            margin-right: 10px;
-            color: #ffb300;
+            color: #ffd700;
+            width: 20px;
         }
-        
         .contact-info a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
         }
-        
         .contact-info a:hover {
-            text-decoration: underline;
-            color: #ffb300;
+            color: #ffd700;
         }
-        
         .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 15px;
         }
-        
         .social-icons a {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             transition: all 0.3s;
         }
-        
         .social-icons a:hover {
-            color: #ffb300;
-            transform: translateY(-3px);
+            color: #ffd700;
+            transform: translateY(-5px) rotate(5deg);
         }
-        
         .footer-bottom {
             text-align: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .copyright {
-            margin-bottom: 10px;
+        .heart {
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
         }
-        
-        .leaf-icon {
-            color: #4caf50;
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
-        
-        @media (max-width: 768px) {
-            .menu {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-        
         .notification {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(to right, #2e7d32, #1b5e20);
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
             color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
             z-index: 1000;
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: slideUp 0.5s ease;
             text-align: center;
             max-width: 90%;
-            border: 1px solid #ffb300;
+            border: 2px solid #ffd700;
+            font-weight: 500;
         }
-        
-        /* Decoraciones de marzo */
-        .march-deco {
-            position: fixed;
-            z-index: 998;
-            font-size: 1.5rem;
-            opacity: 0.6;
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
-        
-        .deco-1 {
-            top: 10%;
-            left: 5%;
-            transform: rotate(-15deg);
-            color: #2e7d32;
+        @media (max-width: 768px) {
+            .menu { grid-template-columns: 1fr; }
+            .anniversary-title { font-size: 2.2rem; }
+            .countdown-item { min-width: 70px; padding: 10px 15px; }
+            .countdown-item span { font-size: 1.8rem; }
+            .promo-highlight.show { grid-template-columns: 1fr 1fr; }
+            footer::before { font-size: 0.9rem; white-space: normal; }
+            .nombre-plato { font-size: 1.2rem; padding-right: 70px; }
+            .precio { font-size: 1rem; padding: 4px 12px; }
         }
-        
-        .deco-2 {
-            top: 15%;
-            right: 5%;
-            transform: rotate(15deg);
-            color: #ffb300;
-        }
-        
-        .deco-3 {
-            bottom: 20%;
-            left: 3%;
-            transform: rotate(-10deg);
-            color: #388e3c;
-        }
-        
-        .deco-4 {
-            bottom: 15%;
-            right: 3%;
-            transform: rotate(10deg);
-            color: #ffb300;
-        }
-        
-        .march-message {
-            text-align: center;
-            background: linear-gradient(45deg, #2e7d32, #388e3c);
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 2px solid #ffb300;
-            font-weight: bold;
-            color: white;
-        }
-        
-        /* Animación de crecimiento */
-        @keyframes grow {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .grow {
-            animation: grow 3s infinite;
-            display: inline-block;
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .container { padding: 10px; }
+            .categoria { padding: 15px; }
+            .categoria h2 { font-size: 1.5rem; }
+            .plato { padding: 15px; }
+            .promo-highlight.show { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Efecto de hojas flotantes -->
-    <div class="leaves" id="leaves"></div>
-    
-    <!-- Decoraciones de marzo -->
-    <div class="march-deco deco-1">🌿</div>
-    <div class="march-deco deco-2">🌼</div>
-    <div class="march-deco deco-3">🌱</div>
-    <div class="march-deco deco-4">🍃</div>
-    
+    <div class="confeti" id="confeti"></div>
     <div class="container">
-        <header>
-            <h1>🍗 Master Chicken 🍗</h1>
-            <p class="subtitle">🌿 Marzo 2026 🌿 El mejor pollo de Honduras - Desde 2015 sirviendo calidad y sabor</p>
-            <div class="march-message">
-                🌱 ¡Nuevos sabores y promociones para este mes! 🌼
+        <!-- Banner Aniversario + Countdown -->
+        <div class="anniversary-banner">
+            <div class="anniversary-title">🎉 2° Aniversario 🎉</div>
+            <div class="anniversary-sub">¡Celebramos 2 años de sabor y calidad!</div>
+            <div class="countdown-container" id="countdown">
+                <div class="countdown-item"><span id="days">00</span><small>Días</small></div>
+                <div class="countdown-item"><span id="hours">00</span><small>Horas</small></div>
+                <div class="countdown-item"><span id="minutes">00</span><small>Minutos</small></div>
+                <div class="countdown-item"><span id="seconds">00</span><small>Segundos</small></div>
             </div>
-        </header>
+            <div class="countdown-message" id="countdownMessage">¡Faltan pocos días para la gran celebración!</div>
+        </div>
 
+        <!-- Promociones destacadas (ocultas hasta el 23 de agosto) -->
+        <div class="promo-highlight" id="promoHighlight">
+            <div class="promo-card">
+                <i class="fas fa-salad"></i>
+                <h4>🍗 + Ensalada Gratis</h4>
+                <p>Por la compra de medio pollo o entero</p>
+                <span class="promo-tag">Válido todo el mes</span>
+            </div>
+            <div class="promo-card">
+                <i class="fas fa-glass-whiskey"></i>
+                <h4>🥤 Frescos Gratis</h4>
+                <p>Hasta agotar existencias</p>
+                <span class="promo-tag">Solo por aniversario</span>
+            </div>
+            <div class="promo-card">
+                <i class="fas fa-birthday-cake"></i>
+                <h4>🧁 Quequitos Gratis</h4>
+                <p>Hasta agotar existencias</p>
+                <span class="promo-tag">Dulce celebración</span>
+            </div>
+            <div class="promo-card">
+                <i class="fas fa-gift"></i>
+                <h4>🎁 Premios a Clientes</h4>
+                <p>Sorteos y regalos sorpresa</p>
+                <span class="promo-tag">Participa con tu compra</span>
+            </div>
+            <div class="promo-card">
+                <i class="fas fa-candy-cane"></i>
+                <h4>🍬 Bolsas de Dulce</h4>
+                <p>Hasta agotar existencias</p>
+                <span class="promo-tag">Detalle para todos</span>
+            </div>
+        </div>
+
+        <!-- ===== MENÚ COMPLETO ===== -->
+
+        <!-- 1. ENTRADAS -->
         <div class="categoria">
-            <h2><i class="fas fa-utensils march-icon"></i> Entradas</h2>
+            <h2><i class="fas fa-utensils"></i> Entradas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -516,11 +579,8 @@
                         <p class="plato-descripcion">Fresca ensalada con ingredientes seleccionados.</p>
                         <img src="img/ensalada.jpg" alt="Ensalada" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Encurtido</span>
@@ -528,157 +588,145 @@
                         <p class="plato-descripcion">Encurtido casero con un toque especial.</p>
                         <img src="img/encurtido.jpg" alt="Encurtido" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Papas personal</span>
                         <span class="precio">38lps</span>
                         <p class="plato-descripcion">Crujientes papas fritas porción personal.</p>
-                        <img src="img/papas_personal.jpg" alt="Papas personal" class="plato-imagen">
+                        <img src="img/papas_personal.jpg" alt="Papas" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
+                </div>
+                <div class="plato">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Salsa Extra</span>
+                        <span class="precio">20lps</span>
+                        <p class="plato-descripcion">Salsa adicional para acompañar tus platillos.</p>
+                        <img src="img/salsa_extra.jpg" alt="Salsa" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
 
+        <!-- 2. PLATOS PRINCIPALES (con promos ocultas para medio/entero) -->
         <div class="categoria">
-            <h2><i class="fas fa-drumstick-bite march-icon"></i> Platos Principales</h2>
+            <h2><i class="fas fa-drumstick-bite"></i> Platos Principales</h2>
             <div class="menu">
+                <div class="plato" data-promo="pollo">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Pollo a la plancha</span>
+                        <span class="precio">120lps</span>
+                        <p class="plato-descripcion">Pollo jugoso a la plancha.</p>
+                        <img src="imagenes/plancha.jpeg" alt="Plancha" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
+                </div>
+                <div class="plato" data-promo="pollo">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Medio Pollo</span>
+                        <span class="precio">150lps</span>
+                        <p class="plato-descripcion">Medio pollo frito a la perfección.</p>
+                        <span class="promo-badge" id="badgeMedio"><i class="fas fa-salad"></i> + Ensalada gratis</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
+                </div>
+                <div class="plato" data-promo="pollo">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Pollo Entero</span>
+                        <span class="precio">260lps</span>
+                        <p class="plato-descripcion">Pollo entero frito para compartir en familia.</p>
+                        <span class="promo-badge" id="badgeEntero"><i class="fas fa-salad"></i> + Ensalada gratis</span>
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
+                </div>
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Finger 10 unidades</span>
                         <span class="precio">175lps</span>
                         <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
                     </div>
-                    <div class="plato-info">
-                        Deliciosos dedos de pollo crujientes.
-                        <span class="salsa-info">Disponibles con salsa extra por 20lps. Sabores: Barbacoa, Buffalo, Sweet Chilli y Agridulce.</span>
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <div class="plato-info">Disponibles en salsa barbacoa, agridulce, buffalo o sweet chilli (+20lps).</div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Finger 6 unidades</span>
                         <span class="precio">135lps</span>
                         <p class="plato-descripcion">Deliciosos dedos de pollo crujientes.</p>
                     </div>
-                    <div class="plato-info">
-                        Deliciosos dedos de pollo crujientes.
-                        <span class="salsa-info">Disponibles con salsa extra por 20lps. Sabores: Barbacoa, Buffalo, Sweet Chilli y Agridulce.</span>
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <div class="plato-info">Disponibles en salsa barbacoa, agridulce, buffalo o sweet chilli (+20lps).</div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Alitas 6 unidades</span>
                         <span class="precio">160lps</span>
-                        <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
+                        <p class="plato-descripcion">Alitas crujientes por fuera y jugosas por dentro.</p>
                     </div>
-                    <div class="plato-info">
-                        Alitas de pollo crujientes por fuera y jugosas por dentro.
-                        <span class="salsa-info">Disponibles en tu salsa favorita: Barbacoa, Buffalo, Sweet Chilli o Agridulce.</span>
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <div class="plato-info">Disponibles en salsa barbacoa, agridulce, buffalo o sweet chilli.</div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Alitas 12 unidades</span>
                         <span class="precio">260lps</span>
-                        <p class="plato-descripcion">Alitas de pollo crujientes por fuera y jugosas por dentro.</p>
+                        <p class="plato-descripcion">Alitas crujientes por fuera y jugosas por dentro.</p>
                     </div>
-                    <div class="plato-info">
-                        Alitas de pollo crujientes por fuera y jugosas por dentro.
-                        <span class="salsa-info">Disponibles en tu salsa favorita: Barbacoa, Buffalo, Sweet Chilli o Agridulce.</span>
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
-                </div>
-                
-                <div class="plato">
-                    <div class="plato-header">
-                        <span class="nombre-plato">Pollo a la plancha</span>
-                        <span class="precio">120lps</span>
-                        <p class="plato-descripcion">Pollo a la plancha jugoso y sabroso.</p>
-                        <img src="imagenes/plancha.jpeg" alt="Pollo a la plancha" class="plato-imagen">
-                    </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <div class="plato-info">Disponibles en salsa barbacoa, agridulce, buffalo o sweet chilli.</div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
-        
+
+        <!-- 3. HAMBURGUESAS Y TORTAS -->
         <div class="categoria">
-            <h2><i class="fas fa-hamburger march-icon"></i> Hamburguesas y Tortas</h2>
+            <h2><i class="fas fa-hamburger"></i> Hamburguesas y Tortas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Hamburguesa con papas</span>
                         <span class="precio">130lps</span>
-                        <p class="plato-descripcion">Deliciosa hamburguesa acompañada de papas fritas crujientes.</p>
-                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa con papas" class="plato-imagen">
+                        <p class="plato-descripcion">Deliciosa hamburguesa con papas fritas crujientes.</p>
+                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Hamburguesa sin papas</span>
                         <span class="precio">100lps</span>
-                        <p class="plato-descripcion">Hamburguesa deliciosa sin acompañamiento de papas.</p>
-                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa sin papas" class="plato-imagen">
+                        <p class="plato-descripcion">Hamburguesa deliciosa sin acompañamiento.</p>
+                        <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Torta con papas</span>
                         <span class="precio">110lps</span>
                         <p class="plato-descripcion">Torta sabrosa acompañada de papas fritas.</p>
-                        <img src="imagenes/torta.jpg" alt="Torta con papas" class="plato-imagen">
+                        <img src="imagenes/torta.jpg" alt="Torta" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Torta sin papas</span>
                         <span class="precio">90lps</span>
-                        <p class="plato-descripcion">Torta deliciosa sin acompañamiento de papas.</p>
-                        <img src="imagenes/torta.jpg" alt="Torta sin papas" class="plato-imagen">
+                        <p class="plato-descripcion">Torta deliciosa sin acompañamiento.</p>
+                        <img src="imagenes/torta.jpg" alt="Torta" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
 
+        <!-- 4. TACOS Y MÁS -->
         <div class="categoria">
-            <h2><i class="fas fa-utensil-spoon march-icon"></i> Tacos y Más</h2>
+            <h2><i class="fas fa-utensil-spoon"></i> Tacos y Más</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -687,11 +735,8 @@
                         <p class="plato-descripcion">Auténticos tacos con el sabor de Master Chicken.</p>
                         <img src="imagenes/tacos.jpg" alt="Tacos" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Gringas</span>
@@ -699,11 +744,8 @@
                         <p class="plato-descripcion">Deliciosas gringas con quesillo.</p>
                         <img src="imagenes/gringas.jpg" alt="Gringas" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Flautas</span>
@@ -711,56 +753,48 @@
                         <p class="plato-descripcion">Crujientes flautas rellenas de pollo.</p>
                         <img src="imagenes/flautas.jpg" alt="Flautas" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
 
+        <!-- 5. TAJADAS -->
         <div class="categoria">
-            <h2><i class="fas fa-bacon march-icon"></i> Tajadas</h2>
+            <h2><i class="fas fa-bacon"></i> Tajadas</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Tajada muslo pierna</span>
                         <span class="precio">127lps</span>
-                        <p class="plato-descripcion">Tajadas crujientes acompañadas de muslo y pierna de pollo.</p>
-                        <img src="imagenes/tajadas.jpg" alt="Tajada muslo pierna" class="plato-imagen">
+                        <p class="plato-descripcion">Tajadas crujientes con muslo y pierna de pollo.</p>
+                        <img src="imagenes/tajadas.jpg" alt="Tajadas" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Tajada pechuga ala</span>
                         <span class="precio">155lps</span>
-                        <p class="plato-descripcion">Tajadas crujientes acompañadas de pechuga y ala de pollo.</p>
-                        <img src="imagenes/tajadas.jpg" alt="Tajada pechuga ala" class="plato-imagen">
+                        <p class="plato-descripcion">Tajadas crujientes con pechuga y ala de pollo.</p>
+                        <img src="imagenes/tajadas.jpg" alt="Tajadas" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Chuleta con tajadas</span>
-                        <span class="precio">130lps</span>
-                        <p class="plato-descripcion">Tajadas crujientes acompañadas de una jugosa chuleta.</p>
-                        <img src="imagenes/chuleta.jpg" alt="Chuleta con tajadas" class="plato-imagen">
+                        <span class="precio">120lps</span>
+                        <p class="plato-descripcion">Tajadas crujientes con una jugosa chuleta.</p>
+                        <img src="imagenes/chuleta.jpg" alt="Chuleta" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
 
+        <!-- 6. NACHOS -->
         <div class="categoria">
-            <h2><i class="fas fa-cheese march-icon"></i> Nachos</h2>
+            <h2><i class="fas fa-cheese"></i> Nachos</h2>
             <div class="menu">
                 <div class="plato">
                     <div class="plato-header">
@@ -769,28 +803,25 @@
                         <p class="plato-descripcion">Crujientes nachos con queso y toppings.</p>
                         <img src="imagenes/nachos.jpg" alt="Nachos" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Nachos Extra-pollo</span>
                         <span class="precio">140lps</span>
                         <p class="plato-descripcion">Nachos con extra porción de pollo, queso y toppings.</p>
-                        <img src="imagenes/nachos.jpg" alt="Nachos Extra-pollo" class="plato-imagen">
+                        <img src="imagenes/nachos.jpg" alt="Nachos" class="plato-imagen">
                     </div>
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
 
+        <!-- 7. COMBOS (todos los originales + los nuevos que te gustaron) -->
         <div class="categoria">
-            <h2><i class="fas fa-box march-icon"></i> Combos</h2>
+            <h2><i class="fas fa-box"></i> Combos</h2>
             <div class="menu">
+                <!-- Combos 1 al 10 -->
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 1</span>
@@ -799,11 +830,8 @@
                     </div>
                     <div class="combo-info">Incluye: 1 pieza de pollo, papas y tortillas.</div>
                     <img src="img/combo_1.jpg" alt="Combo 1" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 2</span>
@@ -812,11 +840,8 @@
                     </div>
                     <div class="combo-info">Incluye: 1 muslo de pollo, papas y tortillas.</div>
                     <img src="img/combo_2.jpg" alt="Combo 2" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 3</span>
@@ -825,24 +850,18 @@
                     </div>
                     <div class="combo-info">Incluye: 2 piezas de pollo, papas y tortillas.</div>
                     <img src="img/combo_3.jpg" alt="Combo 3" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 4</span>
                         <span class="precio">124lps</span>
-                        <p class="plato-descripcion">Combo completo con 2 piezas de pollo, papas, ensalada y tortillas.</p>
+                        <p class="plato-descripcion">Combo completo con 2 piezas, papas, ensalada y tortillas.</p>
                     </div>
                     <div class="combo-info">Incluye: 2 piezas de pollo, papas, ensalada y tortillas.</div>
                     <img src="img/combo_4.jpg" alt="Combo 4" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 5</span>
@@ -851,11 +870,8 @@
                     </div>
                     <div class="combo-info">Incluye: 1 pechuga de pollo, papas y tortillas.</div>
                     <img src="img/combo_5.jpg" alt="Combo 5" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 6</span>
@@ -864,11 +880,8 @@
                     </div>
                     <div class="combo-info">Incluye: 1 pechuga, papas, ensalada y tortillas.</div>
                     <img src="img/combo_6.jpg" alt="Combo 6" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 7</span>
@@ -877,11 +890,8 @@
                     </div>
                     <div class="combo-info">Incluye: pechuga, ala, papas y tortillas.</div>
                     <img src="img/combo_7.jpg" alt="Combo 7" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 8</span>
@@ -890,11 +900,8 @@
                     </div>
                     <div class="combo-info">Incluye: pechuga, ala, pierna, papas y tortillas.</div>
                     <img src="img/combo_8.jpg" alt="Combo 8" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 9</span>
@@ -903,11 +910,8 @@
                     </div>
                     <div class="combo-info">Incluye: pechuga, ala, pierna, papas, ensalada y tortillas.</div>
                     <img src="img/combo_9.jpg" alt="Combo 9" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 10</span>
@@ -916,37 +920,50 @@
                     </div>
                     <div class="combo-info">Incluye: medio pollo, papas, ensalada y tortillas.</div>
                     <img src="img/combo_10.jpg" alt="Combo 10" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                
-                <div class="plato">
+                <div class="plato" data-promo="combo">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo Familiar</span>
                         <span class="precio">520lps</span>
-                        <p class="plato-descripcion">Combo ideal para compartir en familia.</p>
+                        <p class="plato-descripcion">Ideal para compartir en familia estas fiestas.</p>
+                        <span class="promo-badge" id="badgeFamiliar"><i class="fas fa-gift"></i> Incluye sorpresas</span>
                     </div>
-                    <div class="combo-info">Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.</div>
+                    <div class="combo-info">
+                        Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.<br>
+                        <span style="color:#ee5a24;">🎁 Además: Fresco gratis, quequito, bolsa de dulce y participación en sorteo.</span>
+                    </div>
                     <img src="img/combo_familiar.jpg" alt="Combo Familiar" class="plato-imagen">
-                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">
-                        <i class="fas fa-info-circle"></i> Ver más
-                    </button>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
-        
+        <div class="categoria">
+            <h2><i class="fas fa-birthday-cake"></i> Postres</h2>
+            <div class="menu">
+                <div class="plato promo-item" id="quequitoGratis" data-promo="quequito">
+                    <div class="plato-header">
+                        <span class="nombre-plato">Quequito</span>
+                        <span class="precio">0lps</span>
+                        <p class="plato-descripcion">Delicioso quequito <strong>GRATIS</strong> hasta agotar existencias.</p>
+                        <span class="promo-badge show"><i class="fas fa-birthday-cake"></i> Promo Aniversario</span>
+                        <img src="img/quequito.jpg" alt="Quequito" class="plato-imagen">
+                    </div>
+                    <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Master Chicken 🌿</h3>
+                    <h3><span>🍗</span> Master Chicken</h3>
                     <p>El mejor pollo de Honduras</p>
                     <p>Desde 2015 sirviendo calidad y sabor</p>
-                    <p>¡Marzo 2026! 🌼</p>
+                    <p style="margin-top: 10px; color: #ffd700;">🎉 ¡2 años de puro sabor! 🎉</p>
                 </div>
-                
                 <div class="footer-section">
-                    <h3>Contacto y Pedidos</h3>
+                    <h3><span>📞</span> Contacto y Pedidos</h3>
                     <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Calle Guatemala: <a href="tel:33057621">3305-7621</a></p>
@@ -955,30 +972,29 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Terminal: <a href="tel:92667579">9266-7579</a></p>
                     </div>
-                    <div class="contact-info">
+                     <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Villa Santa: <a href="tel:32464527">3246-4527</a></p>
+                        <p>Terminal: <a href="tel:32464527">3246-4527</a></p>
+                    </div> <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Terminal: <a href="tel:33388240">3338-8240</a></p>
                     </div>
-                    <p>Realiza tus pedidos por teléfono</p>
-                    <p>🌱 ¡Nuevos sabores para mayo! 🌿</p>
+                    <p style="margin-top: 10px;">Realiza tus pedidos por teléfono</p>
+                    <p style="color: #ffd700;">🎈 ¡Promociones por aniversario! 🎈</p>
                 </div>
-                
                 <div class="footer-section">
-                    <h3>Síguenos</h3>
+                    <h3><span>🌐</span> Síguenos</h3>
                     <p>Mantente al día con nuestras promociones</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/16y5dqgdKc/" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
+                        <a href="https://www.facebook.com/share/16y5dqgdKc/" target="_blank"><i class="fab fa-facebook"></i></a>
                     </div>
-                    <p>¡Síguenos para más novedades! 🌻</p>
+                    <p style="margin-top: 15px; color: #ffd700;">🎊 ¡Síguenos para más sorpresas! 🎊</p>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p class="copyright">&copy; 2025 Master Chicken - Todos los derechos reservados</p>
-                <p>Desarrollado con <span class="leaf-icon">🌿</span> por Carlos Reyes</p>
-                <p style="margin-top: 10px; color: #ffb300;">🌼 Marzo 2026 - Sabores que renuevan la primavera 🌱</p>
+                <p>Desarrollado con <span class="heart">❤</span> por Carlos Reyes</p>
+                <p style="margin-top: 10px; color: #ffd700; font-size: 1.1rem;">🎈 ¡Gracias por ser parte de nuestra historia! 🎈</p>
             </div>
         </footer>
     </div>
@@ -986,60 +1002,125 @@
     <div class="notification" id="notification"></div>
     
     <script>
-        // Efecto de hojas flotantes
-        function createLeaves() {
-            const leavesContainer = document.getElementById('leaves');
-            const leafCount = 50;
-            
-            for (let i = 0; i < leafCount; i++) {
-                const leaf = document.createElement('div');
-                leaf.classList.add('leaf');
-                
-                const leafSymbols = ['🌿', '🍃', '🌱', '🍂', '🌾'];
-                leaf.innerHTML = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
-                
-                const size = Math.random() * 15 + 15;
-                leaf.style.fontSize = `${size}px`;
-                leaf.style.left = `${Math.random() * 100}%`;
-                
-                const duration = Math.random() * 8 + 8;
-                const delay = Math.random() * 5;
-                leaf.style.animationDuration = `${duration}s`;
-                leaf.style.animationDelay = `${delay}s`;
-                
-                leaf.style.opacity = Math.random() * 0.5 + 0.2;
-                
-                leavesContainer.appendChild(leaf);
+        // Confeti
+        function createConfeti() {
+            const container = document.getElementById('confeti');
+            const colors = ['#ff6b6b', '#ffd700', '#4ecdc4', '#a29bfe', '#ff9ff3', '#feca57'];
+            for (let i = 0; i < 80; i++) {
+                const piece = document.createElement('div');
+                piece.classList.add('confeti-piece');
+                const size = Math.random() * 8 + 4;
+                piece.style.width = size + 'px';
+                piece.style.height = size * 1.5 + 'px';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                piece.style.animationDuration = (Math.random() * 6 + 4) + 's';
+                piece.style.animationDelay = (Math.random() * 8) + 's';
+                piece.style.opacity = Math.random() * 0.7 + 0.3;
+                container.appendChild(piece);
             }
         }
-        
+
+        // Countdown
+        function updateCountdown() {
+            const target = new Date('2026-08-24T00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('countdownMessage').textContent = '🎉 ¡Hoy es el gran día! 🎉';
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            if (days <= 1) {
+                document.getElementById('countdownMessage').textContent = '🎈 ¡Mañana es el gran día! 🎈';
+            } else {
+                document.getElementById('countdownMessage').textContent = `🎉 Faltan ${days} días para nuestro 2° Aniversario 🎉`;
+            }
+        }
+
+        // Revelar promociones si es 23 de agosto o después
+        function revealPromotions() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.getMonth() + 1;
+            // Si es 23 de agosto o posterior
+            if (month === 8 && day >= 23) {
+                document.getElementById('promoHighlight').classList.add('show');
+                document.querySelectorAll('.promo-badge').forEach(badge => {
+                    badge.classList.add('show');
+                });
+                document.querySelectorAll('.plato.promo-item').forEach(item => {
+                    item.classList.add('show');
+                });
+                // Notificación especial (solo una vez)
+                if (!window.promoRevealed) {
+                    window.promoRevealed = true;
+                    showNotification('🎁 ¡Promociones de aniversario activadas!');
+                }
+            } else {
+                document.getElementById('promoHighlight').classList.remove('show');
+                document.querySelectorAll('.promo-badge').forEach(badge => {
+                    badge.classList.remove('show');
+                });
+                document.querySelectorAll('.plato.promo-item').forEach(item => {
+                    item.classList.remove('show');
+                });
+                window.promoRevealed = false;
+            }
+        }
+
         function showNotification(message) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
             notification.style.display = 'block';
-            
             setTimeout(() => {
                 notification.style.display = 'none';
-            }, 3000);
+            }, 4000);
         }
-        
+
         function togglePlatoInfo(button) {
             const plato = button.parentElement;
             plato.classList.toggle('expanded');
-            
             if (plato.classList.contains('expanded')) {
                 button.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos';
-                showNotification('🌿 ¡Descubre nuestros platillos! 🌱');
+                // Mensajes contextuales si la promo está visible
+                if (plato.dataset.promo === 'pollo' && document.querySelector('.promo-badge.show')) {
+                    showNotification('🍗 + Ensalada gratis por compra de medio o entero');
+                } else if (plato.dataset.promo === 'fresco' && plato.classList.contains('show')) {
+                    showNotification('🥤 Fresco gratis hasta agotar existencias');
+                } else if (plato.dataset.promo === 'quequito' && plato.classList.contains('show')) {
+                    showNotification('🧁 Quequito gratis hasta agotar existencias');
+                } else if (plato.dataset.promo === 'combo' && document.querySelector('.promo-badge.show')) {
+                    showNotification('🎁 ¡Llevas sorpresas y promociones especiales!');
+                } else {
+                    showNotification('🎉 ¡Descubre todos los detalles!');
+                }
             } else {
                 button.innerHTML = '<i class="fas fa-info-circle"></i> Ver más';
             }
         }
-        
-        document.addEventListener('DOMContentLoaded', createLeaves);
-        
-        setTimeout(() => {
-            showNotification('🌼 ¡Bienvenido a Master Chicken! Marzo 2026 🌿');
-        }, 1000);
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            createConfeti();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            revealPromotions();
+            setInterval(revealPromotions, 3600000);
+            showNotification('🎉 ¡Bienvenido! Celebra con nosotros nuestro 2° Aniversario 🎉');
+        });
     </script>
 </body>
 </html>
