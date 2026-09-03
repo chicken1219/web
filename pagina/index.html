@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Chicken - 2° Aniversario 🎉</title>
+    <title>Master Chicken - Fiestas Patrias 🇭🇳</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,12 +13,33 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 40%, #1a2a4a 100%);
-            color: #f5f5f5;
+            background: linear-gradient(145deg, #003366 0%, #1a4d7a 40%, #4a8fc9 100%);
+            color: #fff;
             padding: 20px;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+        }
+        /* Estrellas decorativas */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 20px;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(0.8); }
+            100% { opacity: 0.5; transform: scale(1.2); }
         }
         .confeti {
             position: fixed;
@@ -34,7 +55,7 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            opacity: 0.8;
+            opacity: 0.7;
             animation: confetiFall linear infinite;
         }
         @keyframes confetiFall {
@@ -48,47 +69,49 @@
             position: relative;
             z-index: 1;
         }
-        .anniversary-banner {
+        /* Banner patriótico */
+        .patriotic-banner {
             text-align: center;
             padding: 30px 20px;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, #f7971e, #ffd200, #f7971e);
+            background: linear-gradient(135deg, #ffffff, #e6f0fa);
             border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
-            border: 4px solid #fff;
+            box-shadow: 0 10px 40px rgba(0, 51, 102, 0.5);
+            border: 6px solid #003366;
             position: relative;
             overflow: hidden;
+            color: #003366;
         }
-        .anniversary-banner::before {
-            content: "🎈 🎉 🎊";
+        .patriotic-banner::before {
+            content: "🇭🇳 🎉 🇭🇳";
             position: absolute;
             top: 10px;
             left: 20px;
             font-size: 2.5rem;
-            opacity: 0.5;
+            opacity: 0.3;
         }
-        .anniversary-banner::after {
-            content: "🎊 🎉 🎈";
+        .patriotic-banner::after {
+            content: "🇭🇳 🎉 🇭🇳";
             position: absolute;
             top: 10px;
             right: 20px;
             font-size: 2.5rem;
-            opacity: 0.5;
+            opacity: 0.3;
         }
-        .anniversary-title {
-            font-size: 3rem;
+        .banner-title {
+            font-size: 3.5rem;
             font-weight: 900;
-            color: #1a0b2e;
-            text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
+            color: #003366;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
             margin-bottom: 5px;
         }
-        .anniversary-sub {
-            font-size: 1.3rem;
-            color: #1a0b2e;
-            font-weight: 600;
-            background: rgba(255,255,255,0.3);
+        .banner-sub {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a4d7a;
+            background: rgba(0, 51, 102, 0.08);
             display: inline-block;
-            padding: 5px 25px;
+            padding: 5px 30px;
             border-radius: 50px;
             margin-bottom: 15px;
         }
@@ -100,19 +123,20 @@
             margin: 15px 0 10px;
         }
         .countdown-item {
-            background: rgba(26, 11, 46, 0.8);
+            background: rgba(0, 51, 102, 0.85);
             backdrop-filter: blur(5px);
             padding: 15px 25px;
             border-radius: 15px;
             min-width: 100px;
-            border: 2px solid #ffd200;
+            border: 2px solid #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #fff;
         }
         .countdown-item span {
             display: block;
             font-size: 2.5rem;
             font-weight: 900;
-            color: #ffd200;
+            color: #ffd700;
             line-height: 1.2;
         }
         .countdown-item small {
@@ -123,111 +147,33 @@
         }
         .countdown-message {
             margin-top: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1a0b2e;
-            background: rgba(255,255,255,0.4);
-            padding: 8px 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #003366;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px 25px;
             border-radius: 50px;
             display: inline-block;
-        }
-
-        /* Promociones destacadas - ocultas por defecto */
-        .promo-highlight {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin: 20px 0 30px;
-        }
-        .promo-highlight.show {
-            display: grid;
-        }
-        .promo-card {
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(5px);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            border: 2px solid rgba(255,215,0,0.3);
-            transition: all 0.3s;
-        }
-        .promo-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffd700;
-            background: rgba(255,255,255,0.2);
-        }
-        .promo-card i {
-            font-size: 2.5rem;
-            color: #ffd700;
-            margin-bottom: 8px;
-        }
-        .promo-card h4 {
-            color: #ffd700;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        .promo-card p {
-            color: #eee;
-            font-size: 0.9rem;
-        }
-        .promo-tag {
-            display: inline-block;
-            background: #ff6b6b;
-            color: #fff;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        /* Ocultar promociones en platos por defecto */
-        .promo-badge {
-            display: none;
-            background: linear-gradient(45deg, #ffd700, #ff6b6b);
-            color: #1a0b2e;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-            margin-top: 5px;
-        }
-        .promo-badge.show {
-            display: inline-block;
-        }
-        .promo-badge i {
-            margin-right: 4px;
-        }
-
-        /* Productos promocionales (fresco, quequito) ocultos por defecto */
-        .plato.promo-item {
-            display: none;
-        }
-        .plato.promo-item.show {
-            display: block;
         }
 
         /* Categorías */
         .categoria {
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(5px);
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
         .categoria::before {
-            content: "🎉";
+            content: "🇭🇳";
             position: absolute;
             top: 10px;
             left: 15px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             opacity: 0.2;
         }
         .categoria h2 {
@@ -235,13 +181,13 @@
             font-size: 2rem;
             margin-bottom: 25px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #ff6b6b;
+            border-bottom: 3px solid #fff;
             text-align: center;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .categoria h2 i {
             margin-right: 10px;
-            color: #ff6b6b;
+            color: #fff;
         }
         .menu {
             display: grid;
@@ -271,7 +217,7 @@
         .nombre-plato {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #1a0b2e;
+            color: #003366;
             display: block;
             margin-bottom: 8px;
             padding-right: 80px;
@@ -280,19 +226,14 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
+            background: linear-gradient(135deg, #003366, #1a4d7a);
+            color: #fff;
             padding: 6px 15px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 1.1rem;
-            box-shadow: 0 3px 10px rgba(238, 90, 36, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 51, 102, 0.4);
             border: 1px solid #ffd700;
-        }
-        .precio::after {
-            content: "🎈";
-            margin-left: 5px;
-            font-size: 0.8rem;
         }
         .plato-descripcion {
             color: #5a6a7c;
@@ -317,10 +258,10 @@
         .combo-info, .plato-info {
             display: none;
             padding: 15px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 107, 0.05));
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.08), rgba(255, 215, 0, 0.05));
             border-radius: 10px;
             margin-top: 15px;
-            border-left: 4px solid #ff6b6b;
+            border-left: 4px solid #003366;
             font-size: 0.95rem;
         }
         .salsa-info {
@@ -333,8 +274,8 @@
             border-radius: 8px;
         }
         .ver-mas-btn {
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: white;
+            background: linear-gradient(135deg, #003366, #1a4d7a);
+            color: #fff;
             border: none;
             padding: 12px 20px;
             border-radius: 10px;
@@ -348,16 +289,16 @@
             justify-content: center;
             gap: 8px;
             margin-top: 15px;
-            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
         }
         .ver-mas-btn:hover {
-            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            background: linear-gradient(135deg, #1a4d7a, #003366);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
         }
         .plato.expanded {
             border-color: #ffd700;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 51, 102, 0.3);
         }
         .plato.expanded .plato-descripcion {
             display: block;
@@ -381,28 +322,28 @@
             to { opacity: 1; transform: translateY(0); }
         }
         footer {
-            background: linear-gradient(135deg, #1a0b2e, #2d1b4e);
-            color: white;
+            background: linear-gradient(135deg, #003366, #1a4d7a);
+            color: #fff;
             padding: 50px 20px 30px;
             margin-top: 60px;
             border-radius: 20px;
-            border-top: 4px solid #ffd700;
+            border-top: 6px solid #ffd700;
             position: relative;
             overflow: hidden;
         }
         footer::before {
-            content: "🎉 ¡2 Años de Sabor! 🎉";
+            content: "🇭🇳 ¡Viva Honduras! 🇭🇳";
             position: absolute;
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #ffd700, #ff6b6b);
-            color: #1a0b2e;
+            background: linear-gradient(135deg, #ffd700, #fff);
+            color: #003366;
             padding: 5px 30px;
             border-radius: 20px;
             font-weight: 900;
             z-index: 2;
-            border: 2px solid #fff;
+            border: 2px solid #003366;
             white-space: nowrap;
             font-size: 1.1rem;
         }
@@ -438,7 +379,7 @@
             width: 20px;
         }
         .contact-info a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -451,7 +392,7 @@
             margin-top: 15px;
         }
         .social-icons a {
-            color: white;
+            color: #fff;
             font-size: 1.8rem;
             transition: all 0.3s;
         }
@@ -463,7 +404,7 @@
             text-align: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         .heart {
             color: #ff6b6b;
@@ -479,8 +420,8 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: white;
+            background: linear-gradient(135deg, #003366, #1a4d7a);
+            color: #fff;
             padding: 15px 30px;
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.4);
@@ -498,10 +439,9 @@
         }
         @media (max-width: 768px) {
             .menu { grid-template-columns: 1fr; }
-            .anniversary-title { font-size: 2.2rem; }
+            .banner-title { font-size: 2.2rem; }
             .countdown-item { min-width: 70px; padding: 10px 15px; }
             .countdown-item span { font-size: 1.8rem; }
-            .promo-highlight.show { grid-template-columns: 1fr 1fr; }
             footer::before { font-size: 0.9rem; white-space: normal; }
             .nombre-plato { font-size: 1.2rem; padding-right: 70px; }
             .precio { font-size: 1rem; padding: 4px 12px; }
@@ -512,61 +452,29 @@
             .categoria { padding: 15px; }
             .categoria h2 { font-size: 1.5rem; }
             .plato { padding: 15px; }
-            .promo-highlight.show { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <!-- Estrellas decorativas -->
+    <div class="stars" id="stars"></div>
     <div class="confeti" id="confeti"></div>
+
     <div class="container">
-        <!-- Banner Aniversario + Countdown -->
-        <div class="anniversary-banner">
-            <div class="anniversary-title">🎉 2° Aniversario 🎉</div>
-            <div class="anniversary-sub">¡Celebramos 2 años de sabor y calidad!</div>
+        <!-- Banner Patriótico -->
+        <div class="patriotic-banner">
+            <div class="banner-title">🇭🇳 ¡Fiestas Patrias! 🇭🇳</div>
+            <div class="banner-sub">Septiembre, mes de la patria</div>
             <div class="countdown-container" id="countdown">
                 <div class="countdown-item"><span id="days">00</span><small>Días</small></div>
                 <div class="countdown-item"><span id="hours">00</span><small>Horas</small></div>
                 <div class="countdown-item"><span id="minutes">00</span><small>Minutos</small></div>
                 <div class="countdown-item"><span id="seconds">00</span><small>Segundos</small></div>
             </div>
-            <div class="countdown-message" id="countdownMessage">¡Faltan pocos días para la gran celebración!</div>
+            <div class="countdown-message" id="countdownMessage">¡Celebramos la Independencia!</div>
         </div>
 
-        <!-- Promociones destacadas (ocultas hasta el 23 de agosto) -->
-        <div class="promo-highlight" id="promoHighlight">
-            <div class="promo-card">
-                <i class="fas fa-salad"></i>
-                <h4>🍗 + Ensalada Gratis</h4>
-                <p>Por la compra de medio pollo o entero</p>
-                <span class="promo-tag">Hasta agotar existencias</span>
-            </div>
-            <div class="promo-card">
-                <i class="fas fa-glass-whiskey"></i>
-                <h4>🥤 Frescos Gratis</h4>
-                <p>Hasta agotar existencias</p>
-                <span class="promo-tag">Solo por aniversario</span>
-            </div>
-            <div class="promo-card">
-                <i class="fas fa-birthday-cake"></i>
-                <h4>🧁 Quequitos Gratis</h4>
-                <p>Hasta agotar existencias</p>
-                <span class="promo-tag">Dulce celebración</span>
-            </div>
-            <div class="promo-card">
-                <i class="fas fa-gift"></i>
-                <h4>🎁 Premios a Clientes</h4>
-                <p>Sorteos y regalos sorpresa</p>
-                <span class="promo-tag">Participa con tu compra</span>
-            </div>
-            <div class="promo-card">
-                <i class="fas fa-candy-cane"></i>
-                <h4>🍬 Bolsas de Dulce</h4>
-                <p>Hasta agotar existencias</p>
-                <span class="promo-tag">Detalle para todos</span>
-            </div>
-        </div>
-
-        <!-- ===== MENÚ COMPLETO ===== -->
+        <!-- ===== MENÚ COMPLETO ===== (sin promociones) -->
 
         <!-- 1. ENTRADAS -->
         <div class="categoria">
@@ -611,11 +519,11 @@
             </div>
         </div>
 
-        <!-- 2. PLATOS PRINCIPALES (con promos ocultas para medio/entero) -->
+        <!-- 2. PLATOS PRINCIPALES (sin promos) -->
         <div class="categoria">
             <h2><i class="fas fa-drumstick-bite"></i> Platos Principales</h2>
             <div class="menu">
-                <div class="plato" data-promo="pollo">
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Pollo a la plancha</span>
                         <span class="precio">120lps</span>
@@ -624,21 +532,19 @@
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                <div class="plato" data-promo="pollo">
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Medio Pollo</span>
                         <span class="precio">150lps</span>
                         <p class="plato-descripcion">Medio pollo frito a la perfección.</p>
-                        <span class="promo-badge" id="badgeMedio"><i class="fas fa-salad"></i> + Ensalada gratis</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                <div class="plato" data-promo="pollo">
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Pollo Entero</span>
                         <span class="precio">260lps</span>
                         <p class="plato-descripcion">Pollo entero frito para compartir en familia.</p>
-                        <span class="promo-badge" id="badgeEntero"><i class="fas fa-salad"></i> + Ensalada gratis</span>
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
@@ -783,7 +689,7 @@
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Chuleta con tajadas</span>
-                        <span class="precio">120lps</span>
+                        <span class="precio">130lps</span>
                         <p class="plato-descripcion">Tajadas crujientes con una jugosa chuleta.</p>
                         <img src="imagenes/chuleta.jpg" alt="Chuleta" class="plato-imagen">
                     </div>
@@ -817,18 +723,17 @@
             </div>
         </div>
 
-        <!-- 7. COMBOS (todos los originales + los nuevos que te gustaron) -->
+        <!-- 7. COMBOS (sin promociones) -->
         <div class="categoria">
             <h2><i class="fas fa-box"></i> Combos</h2>
             <div class="menu">
-                <!-- Combos 1 al 10 -->
                 <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo 1</span>
                         <span class="precio">67lps</span>
-                        <p class="plato-descripcion">Combo económico con 1 pieza de pollo, papas y tortillas.</p>
+                        <p class="plato-descripcion">Combo económico con 1 pieza de pollo (pierna o ala), papas y tortillas.</p>
                     </div>
-                    <div class="combo-info">Incluye: 1 pieza de pollo, papas y tortillas.</div>
+                    <div class="combo-info">Incluye: 1 pieza de pollo (ala o pierna), papas y tortillas.</div>
                     <img src="img/combo_1.jpg" alt="Combo 1" class="plato-imagen">
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
@@ -922,31 +827,28 @@
                     <img src="img/combo_10.jpg" alt="Combo 10" class="plato-imagen">
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
-                <div class="plato" data-promo="combo">
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Combo Familiar</span>
                         <span class="precio">520lps</span>
-                        <p class="plato-descripcion">Ideal para compartir en familia estas fiestas.</p>
-                        <span class="promo-badge" id="badgeFamiliar"><i class="fas fa-gift"></i> Incluye sorpresas</span>
+                        <p class="plato-descripcion">Ideal para compartir en familia estas fiestas patrias.</p>
                     </div>
-                    <div class="combo-info">
-                        Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.<br>
-                        <span style="color:#ee5a24;">🎁 Además: Fresco gratis, quequito, bolsa de dulce y participación en sorteo.</span>
-                    </div>
+                    <div class="combo-info">Incluye: 8 piezas de pollo, 4 órdenes de papas personales, refresco de 1.5 litro y 4 ensaladas.</div>
                     <img src="img/combo_familiar.jpg" alt="Combo Familiar" class="plato-imagen">
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
                 </div>
             </div>
         </div>
+
+        <!-- Postres (sin promos) -->
         <div class="categoria">
             <h2><i class="fas fa-birthday-cake"></i> Postres</h2>
             <div class="menu">
-                <div class="plato promo-item" id="quequitoGratis" data-promo="quequito">
+                <div class="plato">
                     <div class="plato-header">
                         <span class="nombre-plato">Quequito</span>
-                        <span class="precio">0lps</span>
-                        <p class="plato-descripcion">Delicioso quequito <strong>GRATIS</strong> hasta agotar existencias.</p>
-                        <span class="promo-badge show"><i class="fas fa-birthday-cake"></i> Promo Aniversario</span>
+                        <span class="precio">25lps</span>
+                        <p class="plato-descripcion">Delicioso quequito para endulzar tu comida.</p>
                         <img src="img/quequito.jpg" alt="Quequito" class="plato-imagen">
                     </div>
                     <button class="ver-mas-btn" onclick="togglePlatoInfo(this)">Ver más</button>
@@ -954,13 +856,14 @@
             </div>
         </div>
 
+        <!-- Footer patriótico -->
         <footer>
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><span>🍗</span> Master Chicken</h3>
                     <p>El mejor pollo de Honduras</p>
                     <p>Desde 2015 sirviendo calidad y sabor</p>
-                    <p style="margin-top: 10px; color: #ffd700;">🎉 ¡2 años de puro sabor! 🎉</p>
+                    <p style="margin-top: 10px; color: #ffd700;">🇭🇳 ¡Orgullo catracho! 🇭🇳</p>
                 </div>
                 <div class="footer-section">
                     <h3><span>📞</span> Contacto y Pedidos</h3>
@@ -972,15 +875,16 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Terminal: <a href="tel:92667579">9266-7579</a></p>
                     </div>
-                     <div class="contact-info">
+                    <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Villa Santa: <a href="tel:32464527">3246-4527</a></p>
-                    </div> <div class="contact-info">
+                    </div>
+                    <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Centro: <a href="tel:33388240">3338-8240</a></p>
                     </div>
                     <p style="margin-top: 10px;">Realiza tus pedidos por teléfono</p>
-                    <p style="color: #ffd700;">🎈 ¡Promociones por aniversario! 🎈</p>
+                    <p style="color: #ffd700;">🎉 ¡Fiestas Patrias! 🎉</p>
                 </div>
                 <div class="footer-section">
                     <h3><span>🌐</span> Síguenos</h3>
@@ -988,24 +892,40 @@
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/16y5dqgdKc/" target="_blank"><i class="fab fa-facebook"></i></a>
                     </div>
-                    <p style="margin-top: 15px; color: #ffd700;">🎊 ¡Síguenos para más sorpresas! 🎊</p>
+                    <p style="margin-top: 15px; color: #ffd700;">🇭🇳 ¡Viva Honduras! 🇭🇳</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p class="copyright">&copy; 2025 Master Chicken - Todos los derechos reservados</p>
                 <p>Desarrollado con <span class="heart">❤</span> por Carlos Reyes</p>
-                <p style="margin-top: 10px; color: #ffd700; font-size: 1.1rem;">🎈 ¡Gracias por ser parte de nuestra historia! 🎈</p>
+                <p style="margin-top: 10px; color: #ffd700; font-size: 1.1rem;">🇭🇳 ¡Celebramos la Independencia con sabor! 🇭🇳</p>
             </div>
         </footer>
     </div>
 
     <div class="notification" id="notification"></div>
-    
+
     <script>
-        // Confeti
+        // Crear estrellas decorativas
+        function createStars() {
+            const container = document.getElementById('stars');
+            const count = 60;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.innerHTML = '⭐';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.fontSize = (Math.random() * 14 + 10) + 'px';
+                star.style.animationDelay = (Math.random() * 6) + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // Confeti (con colores patrióticos: azul, blanco, dorado)
         function createConfeti() {
             const container = document.getElementById('confeti');
-            const colors = ['#ff6b6b', '#ffd700', '#4ecdc4', '#a29bfe', '#ff9ff3', '#feca57'];
+            const colors = ['#003366', '#1a4d7a', '#ffffff', '#ffd700', '#4a8fc9'];
             for (let i = 0; i < 80; i++) {
                 const piece = document.createElement('div');
                 piece.classList.add('confeti-piece');
@@ -1022,9 +942,9 @@
             }
         }
 
-        // Countdown
+        // Countdown hacia el 15 de septiembre (Día de la Independencia)
         function updateCountdown() {
-            const target = new Date('2026-08-24T00:00:00').getTime();
+            const target = new Date('2026-09-15T00:00:00').getTime();
             const now = new Date().getTime();
             const diff = target - now;
             if (diff <= 0) {
@@ -1032,7 +952,7 @@
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
                 document.getElementById('seconds').textContent = '00';
-                document.getElementById('countdownMessage').textContent = '🎉 ¡Hoy es el gran día! 🎉';
+                document.getElementById('countdownMessage').textContent = '🇭🇳 ¡Feliz Independencia! 🇭🇳';
                 return;
             }
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -1043,41 +963,13 @@
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            if (days <= 1) {
-                document.getElementById('countdownMessage').textContent = '🎈 ¡Mañana es el gran día! 🎈';
-            } else {
-                document.getElementById('countdownMessage').textContent = `🎉 Faltan ${days} días para nuestro 2° Aniversario 🎉`;
-            }
-        }
 
-        // Revelar promociones si es 23 de agosto o después
-        function revealPromotions() {
-            const now = new Date();
-            const day = now.getDate();
-            const month = now.getMonth() + 1;
-            // Si es 23 de agosto o posterior
-            if (month === 8 && day >= 23) {
-                document.getElementById('promoHighlight').classList.add('show');
-                document.querySelectorAll('.promo-badge').forEach(badge => {
-                    badge.classList.add('show');
-                });
-                document.querySelectorAll('.plato.promo-item').forEach(item => {
-                    item.classList.add('show');
-                });
-                // Notificación especial (solo una vez)
-                if (!window.promoRevealed) {
-                    window.promoRevealed = true;
-                    showNotification('🎁 ¡Promociones de aniversario activadas!');
-                }
+            if (days === 1) {
+                document.getElementById('countdownMessage').textContent = '🎈 ¡Mañana es la Independencia! 🎈';
+            } else if (days === 0) {
+                document.getElementById('countdownMessage').textContent = '🇭🇳 ¡Hoy es el gran día! 🇭🇳';
             } else {
-                document.getElementById('promoHighlight').classList.remove('show');
-                document.querySelectorAll('.promo-badge').forEach(badge => {
-                    badge.classList.remove('show');
-                });
-                document.querySelectorAll('.plato.promo-item').forEach(item => {
-                    item.classList.remove('show');
-                });
-                window.promoRevealed = false;
+                document.getElementById('countdownMessage').textContent = `🇭🇳 Faltan ${days} días para la Independencia 🇭🇳`;
             }
         }
 
@@ -1095,18 +987,7 @@
             plato.classList.toggle('expanded');
             if (plato.classList.contains('expanded')) {
                 button.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos';
-                // Mensajes contextuales si la promo está visible
-                if (plato.dataset.promo === 'pollo' && document.querySelector('.promo-badge.show')) {
-                    showNotification('🍗 + Ensalada gratis por compra de medio o entero');
-                } else if (plato.dataset.promo === 'fresco' && plato.classList.contains('show')) {
-                    showNotification('🥤 Fresco gratis hasta agotar existencias');
-                } else if (plato.dataset.promo === 'quequito' && plato.classList.contains('show')) {
-                    showNotification('🧁 Quequito gratis hasta agotar existencias');
-                } else if (plato.dataset.promo === 'combo' && document.querySelector('.promo-badge.show')) {
-                    showNotification('🎁 ¡Llevas sorpresas y promociones especiales!');
-                } else {
-                    showNotification('🎉 ¡Descubre todos los detalles!');
-                }
+                showNotification('🇭🇳 ¡Descubre más de este platillo!');
             } else {
                 button.innerHTML = '<i class="fas fa-info-circle"></i> Ver más';
             }
@@ -1114,12 +995,11 @@
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', function() {
+            createStars();
             createConfeti();
             updateCountdown();
             setInterval(updateCountdown, 1000);
-            revealPromotions();
-            setInterval(revealPromotions, 3600000);
-            showNotification('🎉 ¡Bienvenido! Celebra con nosotros nuestro 2° Aniversario 🎉');
+            showNotification('🇭🇳 ¡Bienvenido! Celebramos el mes de la patria con el mejor sabor. 🇭🇳');
         });
     </script>
 </body>
